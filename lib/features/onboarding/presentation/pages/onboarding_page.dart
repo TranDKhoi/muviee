@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:muviee/common/global_data.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
+import 'package:muviee/features/bottom_bar/bottom_bar_page.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:muviee/utils/navigation_util.dart';
@@ -35,8 +37,13 @@ class OnboardingPage extends StatelessWidget {
               ),
               const Spacer(),
               FilledButton(
-                onPressed: () =>
-                    NavigationUtil.pushAndRemoveUntil(page: LoginPage()),
+                onPressed: () {
+                  if (GlobalData.ins.currentUser?.token != null) {
+                    NavigationUtil.pushAndRemoveUntil(page: BottomBarPage());
+                  } else {
+                    NavigationUtil.pushAndRemoveUntil(page: LoginPage());
+                  }
+                },
                 child: Text(
                   R.getStarted.translate,
                 ),

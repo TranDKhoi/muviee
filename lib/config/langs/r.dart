@@ -22,4 +22,8 @@ class R {
   static const String logininstead = "login instead?";
   static const String recoveraccount = "recover account";
   static const String setnewpassword = "Set new password";
+  static const String latest = "Latest";
+  static const String seeAll = "seeAll";
+  static const String popular = "popular";
+  static const String topRated = "topRated";
 }

@@ -22,4 +22,12 @@ class SharedService {
   void setCurrentTheme(bool isDark) {
     _pref.setBool("theme", isDark);
   }
+
+  void setToken(String token) {
+    _pref.setString("token", token);
+  }
+
+  String? getToken() {
+    return _pref.getString("token");
+  }
 }

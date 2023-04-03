@@ -28,14 +28,14 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: AppDimens.SPACING * 5),
                 //user name
                 MTextField(
-                  controller: TextEditingController(),
+                  controller: emailController,
                   hintText: R.email.translate,
                   preIcon: Icons.person,
                 ),
                 const SizedBox(height: AppDimens.SPACING * 2),
                 //password
                 MTextField(
-                  controller: TextEditingController(),
+                  controller: passwordController,
                   obscureText: true,
                   hintText: R.password.translate,
                   preIcon: Icons.lock,

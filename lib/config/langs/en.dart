@@ -24,4 +24,8 @@ final enLang = {
   R.logininstead: "Login instead?",
   R.recoveraccount: "Recover account",
   R.setnewpassword: "Set new password",
+  R.latest: "Latest",
+  R.seeAll: "See all",
+  R.popular: "Popular",
+  R.topRated: "Top Rated",
 };

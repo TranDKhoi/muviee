@@ -19,7 +19,7 @@ class LoginUseCaseImpl implements LoginUseCase {
     if (email.isEmpty) {
       throw InvalidEmail("Invalid email");
     }
-    if (password.length < 6) {
+    if (password.length < 5) {
       throw InvalidPassword("Password must at least 6 chars");
     }
 

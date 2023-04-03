@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muviee/config/colors.dart';
+import 'package:muviee/features/home/presentation/home.dart';
 
 import 'cubit/bottombar_cubit.dart';
 
@@ -8,10 +9,10 @@ class BottomBarPage extends StatelessWidget {
   BottomBarPage({Key? key}) : super(key: key);
 
   final List<Widget> listPage = [
+    HomePage(),
     Center(),
     Center(),
-    Center(),
-    Center(),
+    const Center(),
   ];
 
   @override

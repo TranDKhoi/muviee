@@ -12,6 +12,10 @@ class AppStyle {
 
   static const TextStyle largeTitleTextStyle = TextStyle(
       fontWeight: FontWeight.bold, fontSize: AppFontSize.titleFontSize);
+
+  static const TextStyle mediumTitleTextStyle =
+      TextStyle(fontWeight: FontWeight.bold, fontSize: 18);
+
   static const TextStyle normalItalicPrimaryTextStyle =
       TextStyle(color: AppColor.primaryColor, fontStyle: FontStyle.italic);
 }

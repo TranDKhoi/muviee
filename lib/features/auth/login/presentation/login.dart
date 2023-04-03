@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/global_data.dart';
 import 'package:muviee/common/widgets/m_text_field.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';

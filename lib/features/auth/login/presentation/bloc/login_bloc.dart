@@ -11,9 +11,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   _loginClickedEvent(LoginButtonClicked event, emit) async {
     try {
       AlertUtil.showLoading();
-      // var res = await _useCase.login(event.email, event.password);
+      var res = await _useCase.login(event.email, event.password);
       AlertUtil.hideLoading();
-
+      GlobalData.ins.currentUser = res;
       emit(LoginSuccessState());
     } catch (e) {
       ExceptionUtil.handle(e);
