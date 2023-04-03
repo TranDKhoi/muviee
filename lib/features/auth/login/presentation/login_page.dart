@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         body: Image.asset("assets/images/login_image.jpg"),
         bottomSheet: SizedBox(
-          height: context.screenSize.height * 0.6,
+          height: context.screenSize.height * 0.65,
           width: double.maxFinite,
           child: Padding(
             padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
