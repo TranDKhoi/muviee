@@ -5,8 +5,9 @@ import 'package:muviee/utils/extensions/duration_extension.dart';
 import '../models/movie_entity.dart';
 
 class VerticalMovieItem extends StatelessWidget {
-  const VerticalMovieItem(this.movie, {Key? key}) : super(key: key);
+  const VerticalMovieItem(this.movie, this.onTap, {Key? key}) : super(key: key);
   final MovieEntity movie;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +18,29 @@ class VerticalMovieItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              movie.posterPath,
-              height: 200,
-              width: 150,
-              fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: onTap,
+              child: Image.network(
+                movie.posterPath,
+                height: 200,
+                width: 150,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(height: 5),
           ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 50),
-            child: Text(
-              movie.title,
-              textAlign: TextAlign.start,
-              style: AppStyle.mediumTitleTextStyle,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
+            child: Tooltip(
+              message: movie.title,
+              triggerMode: TooltipTriggerMode.tap,
+              child: Text(
+                movie.title,
+                textAlign: TextAlign.start,
+                style: AppStyle.mediumTitleTextStyle,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
             ),
           ),
           Row(

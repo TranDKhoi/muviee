@@ -20,6 +20,7 @@ class AppTheme {
   );
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
+    scaffoldBackgroundColor: const Color(0xff1a1d1f),
     useMaterial3: true,
     textTheme: ThemeData.dark().textTheme.apply(
           fontFamily: "Comfortaa",

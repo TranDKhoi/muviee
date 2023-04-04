@@ -27,11 +27,15 @@ class LatestMovie extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        Container(
           height: 280,
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemBuilder: (ctx, i) => VerticalMovieItem(listMovie[i]),
+            itemBuilder: (ctx, i) => VerticalMovieItem(listMovie[i], () {
+              print("sss");
+              NavigationUtil.push(page: MovieDetailPage(listMovie[i]));
+            }),
             separatorBuilder: (ctx, i) => const SizedBox(width: 20),
             itemCount: listMovie.length,
           ),

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
+import '../../../../../common/models/user_entity.dart';
 import '../../../../../exceptions/app_exception.dart';
-import '../entities/user_entity.dart';
 import '../repositories/login_repository.dart';
 
 abstract class LoginUseCase {

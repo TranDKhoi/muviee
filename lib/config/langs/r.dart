@@ -26,4 +26,7 @@ class R {
   static const String seeAll = "seeAll";
   static const String popular = "popular";
   static const String topRated = "topRated";
+  static const String story = "story";
+  static const String more = "more";
+  static const String less = "less";
 }

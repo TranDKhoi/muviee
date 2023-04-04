@@ -28,4 +28,7 @@ final enLang = {
   R.seeAll: "See all",
   R.popular: "Popular",
   R.topRated: "Top Rated",
+  R.story: "Story",
+  R.more: "More",
+  R.less: "Less",
 };

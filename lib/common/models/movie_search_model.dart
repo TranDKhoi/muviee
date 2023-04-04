@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'movie_model.dart';
-import 'movie_model.dart';
 
 part 'movie_search_model.g.dart';
 

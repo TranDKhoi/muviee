@@ -53,6 +53,7 @@ dependencies:
   simple_mapper: ^1.2.0
   json_serializable: ^6.6.1
   smooth_page_indicator: ^1.0.1
+  readmore: ^2.2.0
 
 
 

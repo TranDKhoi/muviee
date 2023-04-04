@@ -14,10 +14,12 @@ import 'package:muviee/config/colors.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
 import 'package:muviee/di/injector.dart';
+import 'package:muviee/features/movie_detail/presentation/movie_detail.dart';
 import 'package:muviee/utils/alert_util.dart';
 import 'package:muviee/utils/exception_util.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
+import 'package:muviee/utils/navigation_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../common/models/movie_entity.dart';
