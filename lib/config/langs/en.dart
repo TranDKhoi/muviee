@@ -31,4 +31,7 @@ final enLang = {
   R.story: "Story",
   R.more: "More",
   R.less: "Less",
+  R.cast: "Cast",
+  R.preview: "Preview",
+  R.review: "Review",
 };

@@ -1,5 +1,5 @@
 class ImageInfoEntity {
-  final int aspectRatio;
+  final double aspectRatio;
   final String filePath;
   final int height;
   final int width;

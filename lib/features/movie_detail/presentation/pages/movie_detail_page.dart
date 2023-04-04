@@ -12,25 +12,30 @@ class MovieDetailPage extends StatelessWidget {
           injector<MovieDetailBloc>()..add(LoadMovieDetailEvent(movie.id)),
       child: AppScaffold(
         isHaveAppBar: true,
-        body: Column(
-          children: [
-            BigBanner2(movie: movie),
-            StoryText(movie: movie),
-            BlocBuilder<MovieDetailBloc, MovieDetailState>(
-              builder: (context, state) {
-                if (state is MovieDetailLoaded) {
-                  return Column(
-                    children: [
-                      if (state.actors.isNotEmpty) Text("actors"),
-                      if (state.gallery.backdrops.isNotEmpty) Text("gallery"),
-                      if (state.reviewSearch.results.isNotEmpty) Text("review"),
-                    ],
-                  );
-                }
-                return const Center(child: CupertinoActivityIndicator());
-              },
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              BigBanner2(movie: movie),
+              StoryText(movie: movie),
+              const SizedBox(height: AppDimens.SCREEN_PADDING),
+              BlocBuilder<MovieDetailBloc, MovieDetailState>(
+                builder: (context, state) {
+                  if (state is MovieDetailLoaded) {
+                    return Column(
+                      children: [
+                        if (state.actors.isNotEmpty) CastWidget(state.actors),
+                        if (state.gallery.backdrops.isNotEmpty)
+                          GalleryWidget(state.gallery.backdrops),
+                        if (state.reviewSearch.results.isEmpty)
+                          ReviewWidget(state.reviewSearch.results),
+                      ],
+                    );
+                  }
+                  return const Center(child: CupertinoActivityIndicator());
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

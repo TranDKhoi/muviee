@@ -52,7 +52,7 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
 
   @override
   Future<GalleryEntity> getGalleryOfMovie(int id) async {
-    var res = await MovieDetailService.ins.getActorOfMovie(id);
+    var res = await MovieDetailService.ins.getGalleryOfMovie(id);
     GalleryModel model = GalleryModel.fromJson(res.serverData);
 
     GalleryEntity entity = GalleryEntity(
@@ -94,15 +94,17 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
       id: model.id ?? -1,
       results: model.results
               ?.map((e) => ReviewEntity(
-                  author: e.author ?? "null",
-                  authorDetails: UserEntity(
-                      id: e.authorDetails?.id ?? -1,
-                      username: e.authorDetails?.username ?? "null",
-                      email: e.authorDetails?.email ?? "null",
-                      country: e.authorDetails?.country ?? "null",
-                      token: ""),
-                  content: e.content ?? "",
-                  id: e.id ?? "null"))
+                    author: e.author ?? "null",
+                    authorDetails: UserEntity(
+                        id: e.authorDetails?.id ?? -1,
+                        username: e.authorDetails?.username ?? "null",
+                        email: e.authorDetails?.email ?? "null",
+                        country: e.authorDetails?.country ?? "null",
+                        token: ""),
+                    content: e.content ?? "",
+                    id: e.id ?? "null",
+                    rating: e.rating ?? 0,
+                  ))
               .toList() ??
           [],
     );

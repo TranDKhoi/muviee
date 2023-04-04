@@ -33,7 +33,6 @@ class LatestMovie extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (ctx, i) => VerticalMovieItem(listMovie[i], () {
-              print("sss");
               NavigationUtil.push(page: MovieDetailPage(listMovie[i]));
             }),
             separatorBuilder: (ctx, i) => const SizedBox(width: 20),

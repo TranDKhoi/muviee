@@ -24,6 +24,7 @@ mixin _$ReviewModel {
   UserModel? get authorDetails => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,11 @@ abstract class $ReviewModelCopyWith<$Res> {
       _$ReviewModelCopyWithImpl<$Res, ReviewModel>;
   @useResult
   $Res call(
-      {String? author, UserModel? authorDetails, String? content, String? id});
+      {String? author,
+      UserModel? authorDetails,
+      String? content,
+      String? id,
+      double? rating});
 
   $UserModelCopyWith<$Res>? get authorDetails;
 }
@@ -60,6 +65,7 @@ class _$ReviewModelCopyWithImpl<$Res, $Val extends ReviewModel>
     Object? authorDetails = freezed,
     Object? content = freezed,
     Object? id = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       author: freezed == author
@@ -78,6 +84,10 @@ class _$ReviewModelCopyWithImpl<$Res, $Val extends ReviewModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 
@@ -103,7 +113,11 @@ abstract class _$$_ReviewModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? author, UserModel? authorDetails, String? content, String? id});
+      {String? author,
+      UserModel? authorDetails,
+      String? content,
+      String? id,
+      double? rating});
 
   @override
   $UserModelCopyWith<$Res>? get authorDetails;
@@ -124,6 +138,7 @@ class __$$_ReviewModelCopyWithImpl<$Res>
     Object? authorDetails = freezed,
     Object? content = freezed,
     Object? id = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_$_ReviewModel(
       author: freezed == author
@@ -142,6 +157,10 @@ class __$$_ReviewModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -150,7 +169,7 @@ class __$$_ReviewModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ReviewModel implements _ReviewModel {
   const _$_ReviewModel(
-      {this.author, this.authorDetails, this.content, this.id});
+      {this.author, this.authorDetails, this.content, this.id, this.rating});
 
   factory _$_ReviewModel.fromJson(Map<String, dynamic> json) =>
       _$$_ReviewModelFromJson(json);
@@ -163,10 +182,12 @@ class _$_ReviewModel implements _ReviewModel {
   final String? content;
   @override
   final String? id;
+  @override
+  final double? rating;
 
   @override
   String toString() {
-    return 'ReviewModel(author: $author, authorDetails: $authorDetails, content: $content, id: $id)';
+    return 'ReviewModel(author: $author, authorDetails: $authorDetails, content: $content, id: $id, rating: $rating)';
   }
 
   @override
@@ -178,13 +199,14 @@ class _$_ReviewModel implements _ReviewModel {
             (identical(other.authorDetails, authorDetails) ||
                 other.authorDetails == authorDetails) &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.rating, rating) || other.rating == rating));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, author, authorDetails, content, id);
+      Object.hash(runtimeType, author, authorDetails, content, id, rating);
 
   @JsonKey(ignore: true)
   @override
@@ -205,7 +227,8 @@ abstract class _ReviewModel implements ReviewModel {
       {final String? author,
       final UserModel? authorDetails,
       final String? content,
-      final String? id}) = _$_ReviewModel;
+      final String? id,
+      final double? rating}) = _$_ReviewModel;
 
   factory _ReviewModel.fromJson(Map<String, dynamic> json) =
       _$_ReviewModel.fromJson;
@@ -218,6 +241,8 @@ abstract class _ReviewModel implements ReviewModel {
   String? get content;
   @override
   String? get id;
+  @override
+  double? get rating;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewModelCopyWith<_$_ReviewModel> get copyWith =>

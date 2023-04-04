@@ -14,6 +14,7 @@ _$_ReviewModel _$$_ReviewModelFromJson(Map<String, dynamic> json) =>
           : UserModel.fromJson(json['authorDetails'] as Map<String, dynamic>),
       content: json['content'] as String?,
       id: json['id'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ReviewModelToJson(_$_ReviewModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_ReviewModelToJson(_$_ReviewModel instance) =>
       'authorDetails': instance.authorDetails,
       'content': instance.content,
       'id': instance.id,
+      'rating': instance.rating,
     };

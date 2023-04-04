@@ -6,7 +6,7 @@ part 'image_info_model.g.dart';
 @freezed
 class ImageInfoModel with _$ImageInfoModel {
   const factory ImageInfoModel({
-    int? aspectRatio,
+    double? aspectRatio,
     String? filePath,
     int? height,
     int? width,

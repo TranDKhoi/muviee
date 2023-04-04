@@ -20,7 +20,7 @@ ImageInfoModel _$ImageInfoModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageInfoModel {
-  int? get aspectRatio => throw _privateConstructorUsedError;
+  double? get aspectRatio => throw _privateConstructorUsedError;
   String? get filePath => throw _privateConstructorUsedError;
   int? get height => throw _privateConstructorUsedError;
   int? get width => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $ImageInfoModelCopyWith<$Res> {
           ImageInfoModel value, $Res Function(ImageInfoModel) then) =
       _$ImageInfoModelCopyWithImpl<$Res, ImageInfoModel>;
   @useResult
-  $Res call({int? aspectRatio, String? filePath, int? height, int? width});
+  $Res call({double? aspectRatio, String? filePath, int? height, int? width});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$ImageInfoModelCopyWithImpl<$Res, $Val extends ImageInfoModel>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       filePath: freezed == filePath
           ? _value.filePath
           : filePath // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$_ImageInfoModelCopyWith<$Res>
       __$$_ImageInfoModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? aspectRatio, String? filePath, int? height, int? width});
+  $Res call({double? aspectRatio, String? filePath, int? height, int? width});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_ImageInfoModelCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       filePath: freezed == filePath
           ? _value.filePath
           : filePath // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ class _$_ImageInfoModel implements _ImageInfoModel {
       _$$_ImageInfoModelFromJson(json);
 
   @override
-  final int? aspectRatio;
+  final double? aspectRatio;
   @override
   final String? filePath;
   @override
@@ -184,7 +184,7 @@ class _$_ImageInfoModel implements _ImageInfoModel {
 
 abstract class _ImageInfoModel implements ImageInfoModel {
   const factory _ImageInfoModel(
-      {final int? aspectRatio,
+      {final double? aspectRatio,
       final String? filePath,
       final int? height,
       final int? width}) = _$_ImageInfoModel;
@@ -193,7 +193,7 @@ abstract class _ImageInfoModel implements ImageInfoModel {
       _$_ImageInfoModel.fromJson;
 
   @override
-  int? get aspectRatio;
+  double? get aspectRatio;
   @override
   String? get filePath;
   @override

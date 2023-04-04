@@ -29,4 +29,7 @@ class R {
   static const String story = "story";
   static const String more = "more";
   static const String less = "less";
+  static const String cast = "cast";
+  static const String preview = "preview";
+  static const String review = "review";
 }

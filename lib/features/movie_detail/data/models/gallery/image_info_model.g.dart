@@ -8,7 +8,7 @@ part of 'image_info_model.dart';
 
 _$_ImageInfoModel _$$_ImageInfoModelFromJson(Map<String, dynamic> json) =>
     _$_ImageInfoModel(
-      aspectRatio: json['aspectRatio'] as int?,
+      aspectRatio: (json['aspectRatio'] as num?)?.toDouble(),
       filePath: json['filePath'] as String?,
       height: json['height'] as int?,
       width: json['width'] as int?,

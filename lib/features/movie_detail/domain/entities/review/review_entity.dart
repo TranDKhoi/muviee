@@ -5,11 +5,13 @@ class ReviewEntity {
   final UserEntity authorDetails;
   final String content;
   final String id;
+  final double rating;
 
   const ReviewEntity({
     required this.author,
     required this.authorDetails,
     required this.content,
     required this.id,
+    required this.rating,
   });
 }
