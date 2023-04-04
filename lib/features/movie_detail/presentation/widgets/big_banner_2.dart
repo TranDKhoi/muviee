@@ -25,14 +25,13 @@ class BigBanner2 extends StatelessWidget {
             ),
           ),
           //foreground
-          Positioned(
-            bottom: (context.screenSize.height / 2.1) / 5,
-            left: 32,
+          Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
                 movie.backdropPath,
                 height: context.screenSize.height / 3.7,
+                width: context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
                 fit: BoxFit.cover,
               ),
             ),

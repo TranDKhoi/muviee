@@ -20,20 +20,17 @@ class MovieDetailUseCaseImpl implements MovieDetailUseCase {
   final MovieDetailRepository _repo;
 
   @override
-  Future<List<ActorEntity>> getActorOfMovie(int id) {
-    // TODO: implement getActorOfMovie
-    throw UnimplementedError();
+  Future<List<ActorEntity>> getActorOfMovie(int id) async {
+    return await _repo.getActorOfMovie(id);
   }
 
   @override
-  Future<GalleryEntity> getGalleryOfMovie(int id) {
-    // TODO: implement getGalleryOfMovie
-    throw UnimplementedError();
+  Future<GalleryEntity> getGalleryOfMovie(int id) async {
+    return await _repo.getGalleryOfMovie(id);
   }
 
   @override
-  Future<ReviewSearchEntity> getReviewOfMovie(int id) {
-    // TODO: implement getReviewOfMovie
-    throw UnimplementedError();
+  Future<ReviewSearchEntity> getReviewOfMovie(int id) async {
+    return await _repo.getReviewOfMovie(id);
   }
 }

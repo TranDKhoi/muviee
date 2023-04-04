@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/global_data.dart';
 import 'package:muviee/common/models/movie_entity.dart';
 import 'package:muviee/common/widgets/app_scaffold.dart';
 import 'package:muviee/di/injector.dart';

@@ -18,12 +18,16 @@ class MovieDetailPage extends StatelessWidget {
             StoryText(movie: movie),
             BlocBuilder<MovieDetailBloc, MovieDetailState>(
               builder: (context, state) {
-                if (state is MovieDetailInitial) {
-                  return const Center(child: CupertinoActivityIndicator());
+                if (state is MovieDetailLoaded) {
+                  return Column(
+                    children: [
+                      if (state.actors.isNotEmpty) Text("actors"),
+                      if (state.gallery.backdrops.isNotEmpty) Text("gallery"),
+                      if (state.reviewSearch.results.isNotEmpty) Text("review"),
+                    ],
+                  );
                 }
-                return Column(
-                  children: [],
-                );
+                return const Center(child: CupertinoActivityIndicator());
               },
             ),
           ],

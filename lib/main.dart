@@ -5,7 +5,7 @@ import 'package:muviee/common/global_data.dart';
 import 'package:muviee/common/models/user_entity.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/features/auth/login/data/data_sources/remote/login_service.dart';
-import 'package:muviee/features/auth/login/data/models/user_model.dart';
+import 'package:muviee/common/models/user_model.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
 import 'features/app/app.dart';

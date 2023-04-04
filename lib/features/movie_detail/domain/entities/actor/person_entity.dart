@@ -8,7 +8,7 @@ class PersonEntity {
   final String imdbId;
   final String name;
   final String placeOfBirth;
-  final int popularity;
+  final double popularity;
   final String profilePath;
 
   const PersonEntity({

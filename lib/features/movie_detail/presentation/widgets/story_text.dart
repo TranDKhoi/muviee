@@ -1,4 +1,5 @@
 part of movie_detail;
+
 class StoryText extends StatelessWidget {
   const StoryText({
     super.key,

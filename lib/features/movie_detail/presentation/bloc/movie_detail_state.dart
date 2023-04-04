@@ -10,15 +10,15 @@ class MovieDetailInitial extends MovieDetailState {
 
 class MovieDetailLoaded extends MovieDetailState {
   final GalleryEntity gallery;
-  final List<ActorEntity> actor;
+  final List<ActorEntity> actors;
   final ReviewSearchEntity reviewSearch;
 
   MovieDetailLoaded({
     required this.gallery,
-    required this.actor,
+    required this.actors,
     required this.reviewSearch,
   });
 
   @override
-  List<Object> get props => [gallery, actor, reviewSearch];
+  List<Object> get props => [gallery, actors, reviewSearch];
 }
