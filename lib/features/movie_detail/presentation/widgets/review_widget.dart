@@ -27,8 +27,8 @@ class ReviewWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (ctx, i) => ReviewItem(),
-              itemCount: 3,
+              itemBuilder: (ctx, i) => ReviewItem(reviews[i]),
+              itemCount: reviews.length,
               separatorBuilder: (_, __) => const SizedBox(width: 16),
             ),
           ),

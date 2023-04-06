@@ -6,7 +6,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     useMaterial3: true,
     textTheme: ThemeData.light().textTheme.apply(
-          fontFamily: "Comfortaa",
+          fontFamily: "SFPro",
         ),
     colorScheme: const ColorScheme.light(primary: AppColor.primaryColor),
     appBarTheme: const AppBarTheme(
@@ -23,7 +23,7 @@ class AppTheme {
     scaffoldBackgroundColor: const Color(0xff1a1d1f),
     useMaterial3: true,
     textTheme: ThemeData.dark().textTheme.apply(
-          fontFamily: "Comfortaa",
+          fontFamily: "SFPro",
         ),
     colorScheme: const ColorScheme.dark(primary: AppColor.primaryColor),
     appBarTheme: const AppBarTheme(

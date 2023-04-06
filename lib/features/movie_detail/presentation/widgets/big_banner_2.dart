@@ -26,14 +26,37 @@ class BigBanner2 extends StatelessWidget {
           ),
           //foreground
           Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                movie.backdropPath,
-                height: context.screenSize.height / 3.7,
-                width: context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
-                fit: BoxFit.cover,
-              ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.network(
+                    movie.backdropPath,
+                    height: context.screenSize.height / 3.7,
+                    width:
+                        context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                //play button
+                Center(
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ClipOval(
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        color: Colors.grey.withOpacity(0.5),
+                        child: const Icon(
+                          Icons.play_arrow_sharp,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           //gradient
@@ -62,64 +85,57 @@ class BigBanner2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  movie.title,
-                  style: AppStyle.largeTitleTextStyle,
-                ),
-                SizedBox(
-                  height: 20,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, i) => Text(
-                      movie.genres[i].name,
-                      overflow: TextOverflow.fade,
-                      maxLines: 1,
-                    ),
-                    separatorBuilder: (ctx, i) => const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text("•"),
-                    ),
-                    itemCount: movie.genres.length,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    movie.title,
+                    style: AppStyle.largeTitleTextStyle,
                   ),
-                )
+                ),
+                //genre and rating
+                SizedBox(
+                  width:
+                      context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: 20,
+                        width: 220,
+                        child: ListView.separated(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, i) => Text(
+                            movie.genres[i].name,
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                          ),
+                          separatorBuilder: (ctx, i) => const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text("•"),
+                          ),
+                          itemCount: movie.genres.length,
+                        ),
+                      ),
+                      const Spacer(),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.star,
+                            color: Colors.yellow,
+                          ),
+                          Text(
+                            "${movie.voteAverage.toStringAsFixed(1)}(${movie.voteCount})",
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
           //rating
-          Positioned(
-            top: 32,
-            right: 32,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(
-                  Icons.star,
-                  color: Colors.yellow,
-                ),
-                Text(
-                  "${movie.voteAverage.toStringAsFixed(1)}(${movie.voteCount})",
-                ),
-              ],
-            ),
-          ),
-          //play button
-          Positioned(
-            right: 32,
-            bottom: 10,
-            child: Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                color: AppColor.primaryColor,
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: const Icon(
-                Icons.play_arrow_sharp,
-                size: 40,
-              ),
-            ),
-          ),
         ],
       ),
     );

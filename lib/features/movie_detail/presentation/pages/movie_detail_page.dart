@@ -26,7 +26,7 @@ class MovieDetailPage extends StatelessWidget {
                         if (state.actors.isNotEmpty) CastWidget(state.actors),
                         if (state.gallery.backdrops.isNotEmpty)
                           GalleryWidget(state.gallery.backdrops),
-                        if (state.reviewSearch.results.isEmpty)
+                        if (state.reviewSearch.results.isNotEmpty)
                           ReviewWidget(state.reviewSearch.results),
                       ],
                     );
