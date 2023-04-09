@@ -7,5 +7,5 @@ extension HandlerApiResponse on Response {
 }
 
 extension HandleDioError on DioError {
-  String get errorMessage => response?.data?["message"];
+  String? get errorMessage => response?.data?["message"];
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:muviee/common/global_data.dart';
+
+import '../../../common/global_data.dart';
 
 class BaseService {
   static const String BASE_PATH = "https://movie-rs.azurewebsites.net/api/";
@@ -17,14 +18,17 @@ class BaseService {
   BaseService() {
     dio = Dio(
       BaseOptions(
-          baseUrl: BASE_PATH,
-          connectTimeout: const Duration(milliseconds: 10000),
-          receiveTimeout: const Duration(milliseconds: 10000),
-          responseType: ResponseType.json,
-          contentType: Headers.jsonContentType,
-          headers: {
-            "authorization": "Bearer ${GlobalData.ins.localToken}",
-          }),
+        baseUrl: BASE_PATH,
+        connectTimeout: const Duration(milliseconds: 10000),
+        receiveTimeout: const Duration(milliseconds: 10000),
+        responseType: ResponseType.json,
+        contentType: Headers.jsonContentType,
+        headers: GlobalData.ins.localToken != null
+            ? {
+                "authorization": "Bearer ${GlobalData.ins.localToken}",
+              }
+            : null,
+      ),
     );
   }
 }

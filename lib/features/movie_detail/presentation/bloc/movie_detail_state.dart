@@ -22,3 +22,14 @@ class MovieDetailLoaded extends MovieDetailState {
   @override
   List<Object> get props => [gallery, actors, reviewSearch];
 }
+
+class GetMovieVideoSuccess extends MovieDetailState {
+  final MovieVideoEntity movieVideo;
+
+  GetMovieVideoSuccess({
+    required this.movieVideo,
+  });
+
+  @override
+  List<Object> get props => [movieVideo];
+}

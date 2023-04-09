@@ -31,7 +31,7 @@ extension DurationFormatExt on Duration {
     }
     if (minute) {
       if (hours) {
-        result += 'h:';
+        result += ':';
       }
       result += mStr;
     }

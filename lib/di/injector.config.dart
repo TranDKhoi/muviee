@@ -18,7 +18,7 @@ import 'package:muviee/features/auth/login/domain/repositories/login_repository.
     as _i9;
 import 'package:muviee/features/auth/login/domain/use_cases/login_usecase.dart'
     as _i11;
-import 'package:muviee/features/auth/login/presentation/login.dart' as _i19;
+import 'package:muviee/features/auth/login/presentation/login.dart' as _i20;
 import 'package:muviee/features/auth/sign_up/presentation/signup.dart' as _i15;
 import 'package:muviee/features/auth/verify_forgot/presentation/verify_forgot.dart'
     as _i16;
@@ -29,7 +29,7 @@ import 'package:muviee/features/home/data/repositories/home_repository_impl.dart
 import 'package:muviee/features/home/domain/repositories/home_repository.dart'
     as _i6;
 import 'package:muviee/features/home/domain/use_cases/home_usecase.dart' as _i8;
-import 'package:muviee/features/home/presentation/home.dart' as _i18;
+import 'package:muviee/features/home/presentation/home.dart' as _i19;
 import 'package:muviee/features/movie_detail/data/repositories/movie_detail_repository_impl.dart'
     as _i13;
 import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_repository.dart'
@@ -37,7 +37,9 @@ import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_re
 import 'package:muviee/features/movie_detail/domain/use_cases/movie_detail_usecase.dart'
     as _i14;
 import 'package:muviee/features/movie_detail/presentation/movie_detail.dart'
-    as _i20; // ignore_for_file: unnecessary_lambdas
+    as _i21;
+import 'package:muviee/features/watching/watching.dart'
+    as _i18; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 extension GetItInjectableX on _i1.GetIt {
@@ -67,10 +69,11 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i15.SignupBloc>(() => _i15.SignupBloc());
     gh.factory<_i16.VerifyForgotCubit>(() => _i16.VerifyForgotCubit());
     gh.factory<_i17.VerifySignupCubit>(() => _i17.VerifySignupCubit());
-    gh.factory<_i18.HomeBloc>(() => _i18.HomeBloc(gh<_i8.HomeUseCase>()));
-    gh.factory<_i19.LoginBloc>(() => _i19.LoginBloc(gh<_i11.LoginUseCase>()));
-    gh.factory<_i20.MovieDetailBloc>(
-        () => _i20.MovieDetailBloc(gh<_i14.MovieDetailUseCase>()));
+    gh.factory<_i18.WatchingCubit>(() => _i18.WatchingCubit());
+    gh.factory<_i19.HomeBloc>(() => _i19.HomeBloc(gh<_i8.HomeUseCase>()));
+    gh.factory<_i20.LoginBloc>(() => _i20.LoginBloc(gh<_i11.LoginUseCase>()));
+    gh.factory<_i21.MovieDetailBloc>(
+        () => _i21.MovieDetailBloc(gh<_i14.MovieDetailUseCase>()));
     return this;
   }
 }

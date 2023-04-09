@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:muviee/common/global_data.dart';
 import 'package:muviee/common/models/user_entity.dart';
+import 'package:muviee/common/models/user_model.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/features/auth/login/data/data_sources/remote/login_service.dart';
-import 'package:muviee/common/models/user_model.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
 import 'features/app/app.dart';
@@ -18,6 +19,11 @@ void main() async {
 
 Future<void> _initialize() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+
   await SharedService.init();
   await injectorInit();
   await _getUserData();

@@ -6,6 +6,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
   MovieDetailBloc(this._useCase) : super(MovieDetailInitial()) {
     on<LoadMovieDetailEvent>(_loadMovieDetail);
+    on<GetMovieVideoEvent>(_getMovieVideo);
   }
 
   FutureOr<void> _loadMovieDetail(
@@ -19,7 +20,18 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       emit(MovieDetailLoaded(
           actors: actor, gallery: gallery, reviewSearch: reviewSearch));
     } catch (e) {
-      print(e);
+      ExceptionUtil.handle(e);
+    }
+  }
+
+  Future<FutureOr<void>> _getMovieVideo(
+      GetMovieVideoEvent event, Emitter<MovieDetailState> emit) async {
+    try {
+      AlertUtil.showLoading();
+      MovieVideoEntity video = await _useCase.getVideoOfMovie(event.id);
+      AlertUtil.hideLoading();
+      emit(GetMovieVideoSuccess(movieVideo: video));
+    } catch (e) {
       ExceptionUtil.handle(e);
     }
   }

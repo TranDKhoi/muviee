@@ -17,4 +17,8 @@ class MovieDetailService extends BaseService {
   Future<Response> getReviewOfMovie(int id) async {
     return await dio.get("${BaseService.BASE_PATH}/Movie/$id/review");
   }
+
+  Future<Response> getVideoOfMovie(int id) async {
+    return await dio.get("${BaseService.BASE_PATH}/Movie/$id/videos");
+  }
 }

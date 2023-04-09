@@ -1,4 +1,6 @@
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/models/movie_video_entity.dart';
+import 'package:muviee/common/models/movie_video_model.dart';
 import 'package:muviee/common/models/user_entity.dart';
 import 'package:muviee/features/movie_detail/data/data_sources/movie_detail_service.dart';
 import 'package:muviee/features/movie_detail/data/models/actor/actor_model.dart';
@@ -107,6 +109,24 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
                   ))
               .toList() ??
           [],
+    );
+
+    return entity;
+  }
+
+  @override
+  Future<MovieVideoEntity> getVideoOfMovie(int id) async {
+    var res = await MovieDetailService.ins.getVideoOfMovie(id);
+    var models = List.from(
+        res.serverData["results"].map((e) => MovieVideoModel.fromJson(e)));
+    MovieVideoModel fullVideo = models.last;
+
+    MovieVideoEntity entity = MovieVideoEntity(
+      id: fullVideo.id ?? "-1",
+      iso_639_1: fullVideo.iso_639_1 ?? "-1",
+      site: fullVideo.site ?? "null",
+      type: fullVideo.type ?? "null",
+      key: fullVideo.key ?? "null",
     );
 
     return entity;

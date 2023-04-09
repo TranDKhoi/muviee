@@ -1,12 +1,12 @@
 part of 'bottombar_cubit.dart';
 
 @immutable
-abstract class BottombarState extends Equatable {}
+abstract class BottomBarState extends Equatable {}
 
-class BottombarInitial extends BottombarState {
+class BottomBarInitial extends BottomBarState {
   final int currentIndex;
 
-  BottombarInitial({required this.currentIndex});
+  BottomBarInitial({required this.currentIndex});
 
   @override
   List<Object?> get props => [currentIndex];

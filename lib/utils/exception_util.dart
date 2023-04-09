@@ -11,13 +11,13 @@ class ExceptionUtil {
       // error from api
       switch (e.type) {
         case DioErrorType.badResponse:
-          AlertUtil.showToast(e.errorMessage);
+          AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
           break;
         case DioErrorType.connectionTimeout:
-          AlertUtil.showToast(e.errorMessage);
+          AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
           break;
         case DioErrorType.receiveTimeout:
-          AlertUtil.showToast(e.errorMessage);
+          AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
           break;
         case DioErrorType.unknown:
           AlertUtil.showToast(e.error.toString());
