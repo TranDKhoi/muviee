@@ -21,39 +21,35 @@ class _VolumeBarState extends State<VolumeBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Icon(Icons.volume_up),
-          Expanded(
-            child: SliderTheme(
-              data: SliderThemeData(
-                inactiveTrackColor: Theme.of(context).dividerColor,
-                activeTrackColor: Colors.grey,
-                trackHeight: 2.0,
-                thumbColor: Colors.white,
-                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8.0),
-              ),
-              child: Slider(
-                min: 0,
-                max: 1,
-                value: _volume,
-                onChanged: (value) {
-                  setState(() {
-                    _volume = value;
-                  });
-                },
-                onChangeEnd: (val) {
-                  widget.onVolumeChanged(val);
-                },
-              ),
+    return Row(
+      children: [
+        const Icon(Icons.volume_up),
+        Expanded(
+          child: SliderTheme(
+            data: SliderThemeData(
+              overlayShape: const RoundSliderOverlayShape(overlayRadius: 0),
+              inactiveTrackColor: Theme.of(context).dividerColor,
+              activeTrackColor: Colors.grey,
+              trackHeight: 2.0,
+              thumbColor: Colors.white,
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8.0),
+            ),
+            child: Slider(
+              min: 0,
+              max: 1,
+              value: _volume,
+              onChanged: (value) {
+                setState(() {
+                  _volume = value;
+                });
+              },
+              onChangeEnd: (val) {
+                widget.onVolumeChanged(val);
+              },
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

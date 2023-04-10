@@ -8,6 +8,7 @@ import 'package:muviee/common/models/user_model.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/features/auth/login/data/data_sources/remote/login_service.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
+import 'package:muviee/utils/language_util.dart';
 
 import 'features/app/app.dart';
 import 'services/shared_service.dart';
@@ -20,13 +21,30 @@ void main() async {
 Future<void> _initialize() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await SharedService.init();
+  await injectorInit();
+  await _getUserData();
+  _getAppConfig();
+}
+
+void _getAppConfig() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
 
-  await SharedService.init();
-  await injectorInit();
-  await _getUserData();
+  //get language
+  String langId = SharedService().getCurrentLang() ?? "en";
+  try {
+    LanguageUtil.ins.changeLanguage(langId);
+    GlobalData.ins.currentLang = LanguageUtil.ins.languages.where((e) => e.id == langId).first;
+  } catch (_) {
+    GlobalData.ins.currentLang = LanguageUtil.ins.languages.first;
+  }
+
+  LanguageUtil.ins.changeLanguage(GlobalData.ins.currentLang.id);
+
+  //get theme
+  GlobalData.ins.isDark = SharedService().getCurrentTheme() ?? true;
 }
 
 Future<void> _getUserData() async {

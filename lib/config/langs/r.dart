@@ -11,12 +11,10 @@ class R {
   static const String confirmPassword = "confirm password";
   static const String confirm = "Confirm";
   static const String alreadyhaveanaccount = "alreadyhaveanaccount";
-  static const String wehavesentaverificationcode =
-      "wehavesentaverificationcode";
+  static const String wehavesentaverificationcode = "wehavesentaverificationcode";
   static const String didntseeanycode = "didntseeanycode";
   static const String back = "Back";
-  static const String onlyafewstepleft =
-      "Only a few steps left to start using FB";
+  static const String onlyafewstepleft = "Only a few steps left to start using FB";
   static const String nickname = "nickname";
   static const String country = "country";
   static const String logininstead = "login instead?";
@@ -32,4 +30,22 @@ class R {
   static const String cast = "cast";
   static const String preview = "preview";
   static const String review = "review";
+  static const String profile = "profile";
+  static const String youractivities = "youractivities";
+  static const String saved = "saved";
+  static const String history = "history";
+  static const String account = "account";
+  static const String settings = "settings";
+  static const String changePassword = "changePassword";
+  static const String general = "general";
+  static const String language = "language";
+  static const String darkMode = "darkMode";
+  static const String home = "home";
+  static const String search = "Search";
+  static const String watching = "Watching";
+  static const String options = "options";
+  static const String share = "share";
+  static const String download = "download";
+  static const String movie = "movie";
+  static const String actor = "actor";
 }

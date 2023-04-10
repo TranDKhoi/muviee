@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
-  const AppScaffold({required this.body, this.isHaveAppBar = false, Key? key})
+  const AppScaffold(
+      {required this.body, this.isHaveAppBar = false, this.appBarTitle = "", Key? key})
       : super(key: key);
 
   final Widget body;
   final bool isHaveAppBar;
+  final String appBarTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,8 @@ class AppScaffold extends StatelessWidget {
                   ),
                 ),
               ),
+              title: Text(appBarTitle),
+              centerTitle: true,
             )
           : null,
       body: body,

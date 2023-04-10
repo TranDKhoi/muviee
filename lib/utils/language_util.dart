@@ -47,7 +47,7 @@ class LanguageUtil {
 
   String langContent(String id) {
     String? content = _languageValueMap[currentLanguage]?[id];
-    return content ?? "???";
+    return content ?? id;
   }
 
   void _getLocalLanguage() async {

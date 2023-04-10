@@ -33,6 +33,7 @@ dependencies:
   readmore: ^2.2.0
   flutter_rating_bar: ^4.0.1
   video_player: ^2.6.1
+  lottie: ^2.3.2
 
 
 
@@ -42,22 +43,35 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   injectable_generator: ^2.1.4
+  flutter_native_splash: ^2.2.16
+  flutter_launcher_icons: ^0.13.0
 
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter packages.
+flutter_native_splash:
+  color: "#FF0040"
+  color_dark: "#FF0040"
+  image: assets/images/logo.png
+  android: true
+  ios: true
+  android_12:
+    icon_background_color: "#FF0040"
+    image: assets/images/logo.png
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/launcher.png"
+  adaptive_icon_background: "#FF0040"
+  android_rounded_corners: true
+
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/lotties/
 
   fonts:
     - family: SFPro

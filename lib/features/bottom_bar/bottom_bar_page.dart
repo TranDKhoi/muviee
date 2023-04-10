@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muviee/config/colors.dart';
+import 'package:muviee/utils/extensions/translate_extension.dart';
 
+import '../../config/langs/r.dart';
 import 'cubit/bottombar_cubit.dart';
 
 class BottomBarPage extends StatelessWidget {
@@ -21,22 +23,22 @@ class BottomBarPage extends StatelessWidget {
             bottomNavigationBar: state.isHidden
                 ? null
                 : BottomNavigationBar(
-                    items: const <BottomNavigationBarItem>[
+                    items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
-                        label: 'Home',
+                        icon: const Icon(Icons.home),
+                        label: R.home.translate,
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.search),
-                        label: 'Search',
+                        icon: const Icon(Icons.search),
+                        label: R.search.translate,
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.live_tv_outlined),
-                        label: 'Watching',
+                        icon: const Icon(Icons.live_tv_outlined),
+                        label: R.watching.translate,
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.person),
-                        label: 'Profile',
+                        icon: const Icon(Icons.person),
+                        label: R.profile.translate,
                       ),
                     ],
                     currentIndex: state.currentIndex,

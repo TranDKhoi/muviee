@@ -27,6 +27,10 @@ class SharedService {
     _pref.setString("token", token);
   }
 
+  void clearToken() {
+    _pref.remove("token");
+  }
+
   String? getToken() {
     return _pref.getString("token");
   }
