@@ -18,30 +18,32 @@ class BottomBarPage extends StatelessWidget {
               controller: context.read<BottomBarCubit>().pageController,
               children: context.read<BottomBarCubit>().listPage,
             ),
-            bottomNavigationBar: BottomNavigationBar(
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
-                  label: 'Search',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.live_tv_outlined),
-                  label: 'Watching',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ],
-              currentIndex: state.currentIndex,
-              selectedItemColor: AppColor.primaryColor,
-              unselectedItemColor: Colors.grey,
-              onTap: (i) => context.read<BottomBarCubit>().changePage(i),
-            ),
+            bottomNavigationBar: state.isHidden
+                ? null
+                : BottomNavigationBar(
+                    items: const <BottomNavigationBarItem>[
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.home),
+                        label: 'Home',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.search),
+                        label: 'Search',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.live_tv_outlined),
+                        label: 'Watching',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.person),
+                        label: 'Profile',
+                      ),
+                    ],
+                    currentIndex: state.currentIndex,
+                    selectedItemColor: AppColor.primaryColor,
+                    unselectedItemColor: Colors.grey,
+                    onTap: (i) => context.read<BottomBarCubit>().changePage(i),
+                  ),
           );
         }
         return const SizedBox.shrink();

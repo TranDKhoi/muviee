@@ -28,4 +28,10 @@ class BottomBarCubit extends Cubit<BottomBarState> {
     listPage[2] = WatchingPage(currentMovie: currentMovie);
     changePage(2);
   }
+
+  void toggleBottomBar(bool isFullMode) {
+    if (state is BottomBarInitial) {
+      emit((state as BottomBarInitial).copyWith(isHidden: isFullMode));
+    }
+  }
 }

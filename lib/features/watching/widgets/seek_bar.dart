@@ -52,10 +52,6 @@ class _SeekBarState extends State<SeekBar> {
                 },
                 onChangeEnd: (value) {
                   widget.onDrag(Duration(milliseconds: value.round()));
-                  setState(() {
-                    _dragValue = value;
-                    widget.onDrag(Duration(milliseconds: value.round()));
-                  });
                 },
                 activeColor: Colors.red,
                 inactiveColor: Colors.grey,

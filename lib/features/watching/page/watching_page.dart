@@ -24,11 +24,7 @@ class _WatchingPageState extends State<WatchingPage>
     super.build(context);
     return WillPopScope(
       onWillPop: () async {
-        SystemChrome.setPreferredOrientations([
-          DeviceOrientation.portraitUp,
-        ]);
-        context.read<BottomBarCubit>().changePage(0);
-        return false;
+        return await willPopHandler();
       },
       child: BlocProvider(
         create: (_) => _cubit,
@@ -46,18 +42,23 @@ class _WatchingPageState extends State<WatchingPage>
                       aspectRatio: _controller.value.aspectRatio,
                       child: Stack(
                         children: [
+                          //video
                           VideoPlayer(_controller),
+                          //play button
                           ControlButton(
-                              isShowButton: isShowButton,
-                              controller: _controller),
-                          Visibility(
-                            visible: isShowButton,
-                            child: Positioned(
-                              bottom: 16,
+                            isShowButton: isShowButton,
+                            controller: _controller,
+                          ),
+                          //seek bar
+                          Positioned(
+                            bottom: 16,
+                            child: SizedBox(
+                              width: context.screenSize.width,
                               child: BlocBuilder<WatchingCubit, WatchingState>(
                                 builder: (context, state) {
-                                  return SizedBox(
-                                    width: context.screenSize.width,
+                                  return Visibility(
+                                    maintainState: true,
+                                    visible: isShowButton,
                                     child: SeekBar(
                                       duration: videoDuration,
                                       position: state.props[0] as Duration,
@@ -73,10 +74,26 @@ class _WatchingPageState extends State<WatchingPage>
                                         setState(() {
                                           isFullMode = !isFullMode;
                                         });
+                                        context.read<BottomBarCubit>().toggleBottomBar(isFullMode);
                                       },
                                     ),
                                   );
                                 },
+                              ),
+                            ),
+                          ),
+                          //volume bar
+                          Positioned(
+                            top: 16,
+                            right: 16,
+                            child: SizedBox(
+                              width: 200,
+                              child: Visibility(
+                                maintainState: true,
+                                visible: isShowButton,
+                                child: VolumeBar(onVolumeChanged: (val) {
+                                  _controller.setVolume(val);
+                                }),
                               ),
                             ),
                           ),
@@ -95,17 +112,17 @@ class _WatchingPageState extends State<WatchingPage>
   void initState() {
     super.initState();
     if (widget.currentMovie != null) {
-      _controller = VideoPlayerController.network(
-          widget.currentMovie!.key.replaceFirst("http", "https"))
-        ..initialize().then((_) {
-          setState(() {
-            videoDuration = _controller.value.duration;
-          });
+      _controller =
+          VideoPlayerController.network(widget.currentMovie!.key.replaceFirst("http", "https"))
+            ..initialize().then((_) {
+              setState(() {
+                videoDuration = _controller.value.duration;
+              });
 
-          _controller.addListener(() {
-            _cubit.onPositionProgress(_controller.value.position);
-          });
-        });
+              _controller.addListener(() {
+                _cubit.onPositionProgress(_controller.value.position);
+              });
+            });
     }
   }
 
@@ -117,4 +134,19 @@ class _WatchingPageState extends State<WatchingPage>
 
   @override
   bool get wantKeepAlive => true;
+
+  willPopHandler() {
+    if (isFullMode) {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
+      setState(() {
+        isFullMode = !isFullMode;
+      });
+      context.read<BottomBarCubit>().toggleBottomBar(isFullMode);
+    } else {
+      context.read<BottomBarCubit>().changePage(0);
+    }
+    return false;
+  }
 }

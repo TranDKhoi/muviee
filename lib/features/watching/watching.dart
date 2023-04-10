@@ -20,3 +20,4 @@ part 'cubit/watching_state.dart';
 part 'page/watching_page.dart';
 part 'widgets/control_button.dart';
 part 'widgets/seek_bar.dart';
+part 'widgets/volume_bar.dart';
