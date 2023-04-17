@@ -44,9 +44,9 @@ class VerifyForgotPassPage extends StatelessWidget {
                     );
                   },
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: AppDimens.SPACING),
                 const Divider(),
-                const SizedBox(height: 10),
+                const SizedBox(height: AppDimens.SPACING),
                 //other options
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

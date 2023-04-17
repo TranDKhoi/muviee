@@ -21,7 +21,7 @@ class SettingPage extends StatelessWidget {
                 R.general.translate,
                 style: AppStyle.largeTitleTextStyle,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: AppDimens.SPACING),
               Wrap(
                 runSpacing: 15,
                 children: [

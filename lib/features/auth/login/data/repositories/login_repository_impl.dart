@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/models/country_entity.dart';
 import 'package:muviee/services/shared_service.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
@@ -20,7 +21,11 @@ class LoginRepositoryImpl implements LoginRepository {
       id: userModel.id ?? -1,
       username: userModel.username ?? "null",
       email: userModel.email ?? "null",
-      country: userModel.country ?? "null",
+      country: CountryEntity(
+          id: userModel.country?.id ?? -1,
+          name: userModel.country?.name ?? "null",
+          code: userModel.country?.code ?? "null",
+          image: userModel.country?.image ?? "null"),
       token: res.data["token"],
     );
 

@@ -23,7 +23,7 @@ mixin _$UserModel {
   int? get id => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
+  CountryModel? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,9 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({int? id, String? username, String? email, String? country});
+  $Res call({int? id, String? username, String? email, CountryModel? country});
+
+  $CountryModelCopyWith<$Res>? get country;
 }
 
 /// @nodoc
@@ -73,8 +75,20 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CountryModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CountryModelCopyWith<$Res>? get country {
+    if (_value.country == null) {
+      return null;
+    }
+
+    return $CountryModelCopyWith<$Res>(_value.country!, (value) {
+      return _then(_value.copyWith(country: value) as $Val);
+    });
   }
 }
 
@@ -85,7 +99,10 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       __$$_UserModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? username, String? email, String? country});
+  $Res call({int? id, String? username, String? email, CountryModel? country});
+
+  @override
+  $CountryModelCopyWith<$Res>? get country;
 }
 
 /// @nodoc
@@ -120,7 +137,7 @@ class __$$_UserModelCopyWithImpl<$Res>
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CountryModel?,
     ));
   }
 }
@@ -140,7 +157,7 @@ class _$_UserModel implements _UserModel {
   @override
   final String? email;
   @override
-  final String? country;
+  final CountryModel? country;
 
   @override
   String toString() {
@@ -182,7 +199,7 @@ abstract class _UserModel implements UserModel {
       {final int? id,
       final String? username,
       final String? email,
-      final String? country}) = _$_UserModel;
+      final CountryModel? country}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
@@ -194,7 +211,7 @@ abstract class _UserModel implements UserModel {
   @override
   String? get email;
   @override
-  String? get country;
+  CountryModel? get country;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

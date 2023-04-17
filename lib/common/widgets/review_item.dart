@@ -19,8 +19,7 @@ class ReviewItem extends StatelessWidget {
         height: 80,
         width: 280,
         decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(10)),
+            color: Colors.grey.withOpacity(0.5), borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,7 +30,7 @@ class ReviewItem extends StatelessWidget {
                     "https://th.bing.com/th/id/OIP.64GgWje_ynFTjhu93we44gHaHO?w=187&h=183&c=7&r=0&o=5&pid=1.7"),
               ),
               title: Text(review.authorDetails.username),
-              subtitle: Text(review.authorDetails.country),
+              subtitle: Text(review.authorDetails.country.name),
             ),
             //content
             Padding(
@@ -90,10 +89,9 @@ class ReviewItem extends StatelessWidget {
                       "https://th.bing.com/th/id/OIP.64GgWje_ynFTjhu93we44gHaHO?w=187&h=183&c=7&r=0&o=5&pid=1.7"),
                 ),
                 title: Text(review.authorDetails.username),
-                subtitle: Text(review.authorDetails.country),
+                subtitle: Text(review.authorDetails.country.name),
                 trailing: GestureDetector(
-                    onTap: () => NavigationUtil.pop(),
-                    child: const Icon(Icons.close)),
+                    onTap: () => NavigationUtil.pop(), child: const Icon(Icons.close)),
               ),
               //content
               Padding(

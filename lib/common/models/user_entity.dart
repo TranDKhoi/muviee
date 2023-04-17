@@ -1,8 +1,10 @@
+import 'country_entity.dart';
+
 class UserEntity {
   final int id;
   final String username;
   final String email;
-  final String country;
+  final CountryEntity country;
   final String token;
 
   UserEntity({

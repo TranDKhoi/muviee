@@ -13,6 +13,7 @@ import 'package:muviee/features/movie_detail/domain/entities/review/review_entit
 import 'package:muviee/features/movie_detail/domain/entities/review/review_search_entity.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
+import '../../../../common/models/country_entity.dart';
 import '../../domain/repositories/movie_detail_repository.dart';
 import '../models/gallery/gallery_model.dart';
 
@@ -101,7 +102,11 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
                         id: e.authorDetails?.id ?? -1,
                         username: e.authorDetails?.username ?? "null",
                         email: e.authorDetails?.email ?? "null",
-                        country: e.authorDetails?.country ?? "null",
+                        country: CountryEntity(
+                            id: e.authorDetails?.country?.id ?? -1,
+                            name: e.authorDetails?.country?.name ?? "null",
+                            code: e.authorDetails?.country?.code ?? "null",
+                            image: e.authorDetails?.country?.image ?? "null"),
                         token: ""),
                     content: e.content ?? "",
                     id: e.id ?? "null",
@@ -117,8 +122,7 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
   @override
   Future<MovieVideoEntity> getVideoOfMovie(int id) async {
     var res = await MovieDetailService.ins.getVideoOfMovie(id);
-    var models = List.from(
-        res.serverData["results"].map((e) => MovieVideoModel.fromJson(e)));
+    var models = List.from(res.serverData["results"].map((e) => MovieVideoModel.fromJson(e)));
     MovieVideoModel fullVideo = models.last;
 
     MovieVideoEntity entity = MovieVideoEntity(

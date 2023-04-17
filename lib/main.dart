@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:muviee/common/global_data.dart';
+import 'package:muviee/common/models/country_entity.dart';
 import 'package:muviee/common/models/user_entity.dart';
 import 'package:muviee/common/models/user_model.dart';
 import 'package:muviee/di/injector.dart';
@@ -61,7 +62,11 @@ Future<void> _getUserData() async {
         id: userModel.id ?? -1,
         username: userModel.username ?? "null",
         email: userModel.email ?? "null",
-        country: userModel.country ?? "null",
+        country: CountryEntity(
+            id: userModel.country?.id ?? -1,
+            name: userModel.country?.name ?? "null",
+            code: userModel.country?.code ?? "null",
+            image: userModel.country?.image ?? "null"),
         token: localToken,
       );
     }

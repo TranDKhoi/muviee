@@ -13,6 +13,7 @@ import 'package:muviee/common/models/movie_video_entity.dart';
 import 'package:muviee/common/widgets/app_scaffold.dart';
 import 'package:muviee/common/widgets/review_item.dart';
 import 'package:muviee/di/injector.dart';
+import 'package:muviee/features/actor/presentation/actor.dart';
 import 'package:muviee/features/bottom_bar/cubit/bottombar_cubit.dart';
 import 'package:muviee/features/movie_detail/domain/entities/actor/actor_entity.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/gallery_entity.dart';

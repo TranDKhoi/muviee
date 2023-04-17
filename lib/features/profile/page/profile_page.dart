@@ -45,13 +45,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: AppDimens.SPACING),
                 //activities
                 Text(
                   R.youractivities.translate,
                   style: AppStyle.largeTitleTextStyle,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: AppDimens.SPACING),
                 Wrap(
                   runSpacing: 15,
                   children: [
@@ -75,14 +75,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 30),
-
+                const SizedBox(height: AppDimens.SPACING * 3),
                 //account
                 Text(
                   R.account.translate,
                   style: AppStyle.largeTitleTextStyle,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: AppDimens.SPACING),
                 Wrap(
                   runSpacing: 15,
                   children: [
