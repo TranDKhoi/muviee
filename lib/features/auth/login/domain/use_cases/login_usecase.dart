@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../../common/models/user_entity.dart';
+import '../../../../../common/entity/user_entity.dart';
 import '../../../../../exceptions/app_exception.dart';
 import '../repositories/login_repository.dart';
 

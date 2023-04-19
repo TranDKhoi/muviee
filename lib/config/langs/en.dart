@@ -50,4 +50,5 @@ final enLang = {
   R.download: "Download",
   R.movie: "Movie",
   R.actor: "Actor",
+  R.bio: "Bio",
 };

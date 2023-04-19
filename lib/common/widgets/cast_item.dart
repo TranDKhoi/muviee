@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:muviee/features/movie_detail/domain/entities/actor/actor_entity.dart';
 
 import '../../features/actor/presentation/actor.dart';
 import '../../utils/navigation_util.dart';
+import '../entity/actor/actor_entity.dart';
 
 class CastItem extends StatelessWidget {
   const CastItem(this.actor, {Key? key}) : super(key: key);

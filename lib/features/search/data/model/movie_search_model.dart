@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'movie_model.dart';
+import '../../../../common/models/movie_model.dart';
 
 part 'movie_search_model.g.dart';
 
@@ -17,7 +17,6 @@ class MovieSearchModel {
     this.totalPage,
     this.totalResults,
   });
-  factory MovieSearchModel.fromJson(Map<String, dynamic> json) =>
-      _$MovieSearchModelFromJson(json);
+  factory MovieSearchModel.fromJson(Map<String, dynamic> json) => _$MovieSearchModelFromJson(json);
   Map<String, dynamic> toJson() => _$MovieSearchModelToJson(this);
 }

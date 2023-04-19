@@ -48,4 +48,5 @@ class R {
   static const String download = "download";
   static const String movie = "movie";
   static const String actor = "actor";
+  static const String bio = "bio";
 }

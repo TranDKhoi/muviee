@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:muviee/config/styles.dart';
 import 'package:muviee/utils/extensions/duration_extension.dart';
 
-import '../models/movie_entity.dart';
+import '../entity/movie_entity.dart';
 
 class VerticalMovieItem extends StatelessWidget {
   const VerticalMovieItem(this.movie, this.onTap, {Key? key}) : super(key: key);
+
   final MovieEntity movie;
   final VoidCallback onTap;
 
@@ -45,8 +46,7 @@ class VerticalMovieItem extends StatelessWidget {
           ),
           Row(
             children: [
-              Text(Duration(minutes: movie.runtime)
-                  .format(DurationStyle.FORMAT_HH_MM)),
+              Text(Duration(minutes: movie.runtime).format(DurationStyle.FORMAT_HH_MM)),
               const Spacer(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

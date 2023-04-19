@@ -1,5 +1,5 @@
-import '../../../../common/models/movie_video_entity.dart';
-import '../entities/actor/actor_entity.dart';
+import '../../../../common/entity/actor/actor_entity.dart';
+import '../../../../common/entity/movie_video_entity.dart';
 import '../entities/gallery/gallery_entity.dart';
 import '../entities/review/review_search_entity.dart';
 

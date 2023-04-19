@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:muviee/common/models/movie_entity.dart';
 import 'package:muviee/features/home/data/repositories/home_repository_impl.dart';
 
+import '../../../../common/entity/movie_entity.dart';
 import '../repositories/home_repository.dart';
 
 abstract class HomeUseCase {

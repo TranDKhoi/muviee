@@ -1,4 +1,4 @@
-import 'package:muviee/common/models/user_entity.dart';
+import 'package:muviee/common/entity/user_entity.dart';
 import 'package:muviee/utils/language_util.dart';
 
 class GlobalData {

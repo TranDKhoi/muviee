@@ -18,7 +18,7 @@ import 'package:muviee/utils/extensions/duration_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../common/models/movie_video_entity.dart';
+import '../../common/entity/movie_video_entity.dart';
 import '../../config/langs/r.dart';
 
 part 'cubit/watching_cubit.dart';

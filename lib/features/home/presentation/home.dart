@@ -22,7 +22,7 @@ import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:muviee/utils/navigation_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../common/models/movie_entity.dart';
+import '../../../common/entity/movie_entity.dart';
 import '../../../config/langs/r.dart';
 import '../domain/use_cases/home_usecase.dart';
 

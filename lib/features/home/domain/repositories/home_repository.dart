@@ -1,4 +1,4 @@
-import 'package:muviee/common/models/movie_entity.dart';
+import '../../../../common/entity/movie_entity.dart';
 
 abstract class HomeRepository {
   Future<List<MovieEntity>> getLatestMovie();

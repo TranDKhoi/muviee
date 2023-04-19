@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:muviee/features/movie_detail/domain/entities/actor/actor_entity.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/gallery_entity.dart';
 import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_repository.dart';
 
-import '../../../../common/models/movie_video_entity.dart';
+import '../../../../common/entity/actor/actor_entity.dart';
+import '../../../../common/entity/movie_video_entity.dart';
 import '../entities/review/review_search_entity.dart';
 
 abstract class MovieDetailUseCase {

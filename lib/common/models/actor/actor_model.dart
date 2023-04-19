@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:muviee/features/movie_detail/data/models/actor/person_model.dart';
+import 'package:muviee/common/models/actor/person_model.dart';
 
 part 'actor_model.freezed.dart';
 part 'actor_model.g.dart';
@@ -12,6 +12,5 @@ class ActorModel with _$ActorModel {
     PersonModel? person,
   }) = _ActorModel;
 
-  factory ActorModel.fromJson(Map<String, dynamic> json) =>
-      _$ActorModelFromJson(json);
+  factory ActorModel.fromJson(Map<String, dynamic> json) => _$ActorModelFromJson(json);
 }

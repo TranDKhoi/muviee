@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:muviee/common/models/movie_entity.dart';
 import 'package:muviee/features/home/data/data_sources/home_service.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
-import '../../../../common/models/genre_entity.dart';
+import '../../../../common/entity/genre_entity.dart';
+import '../../../../common/entity/movie_entity.dart';
 import '../../../../common/models/movie_model.dart';
 import '../../domain/repositories/home_repository.dart';
 
@@ -41,10 +41,8 @@ class HomeRepositoryImpl implements HomeRepository {
         id: item.id ?? -1,
         backdropPath: item.backdropPath ?? "",
         budget: item.budget ?? -1,
-        genres: item.genres
-                ?.map((e) => GenreEntity(id: e.id ?? -1, name: e.name ?? ""))
-                .toList() ??
-            [],
+        genres:
+            item.genres?.map((e) => GenreEntity(id: e.id ?? -1, name: e.name ?? "")).toList() ?? [],
         imdbId: item.imdbId ?? "",
         originalTitle: item.originalTitle ?? "",
         title: item.title ?? "",

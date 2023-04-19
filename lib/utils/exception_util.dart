@@ -14,10 +14,10 @@ class ExceptionUtil {
           AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
           break;
         case DioErrorType.connectionTimeout:
-          AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
+          AlertUtil.showToast(e.message ?? "Something went wrong");
           break;
         case DioErrorType.receiveTimeout:
-          AlertUtil.showToast(e.errorMessage ?? "Something went wrong");
+          AlertUtil.showToast(e.message ?? "Something went wrong");
           break;
         case DioErrorType.unknown:
           AlertUtil.showToast(e.error.toString());
