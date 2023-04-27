@@ -1,6 +1,5 @@
 library bio;
 
-import 'package:autocomplete_textfield_ns/autocomplete_textfield_ns.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +10,7 @@ import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:muviee/utils/global_keys.dart';
 
+import '../../../../common/widgets/auto_complete_textfield.dart';
 import '../../../../config/dimens.dart';
 import '../../../../config/langs/r.dart';
 import '../../../../config/styles.dart';

@@ -22,7 +22,9 @@ extension SearchAppBar on SearchPageState {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            var res = await NavigationUtil.push(page: FilterPage());
+          },
           icon: const Icon(Icons.filter_list),
         ),
         const SizedBox(width: AppDimens.SCREEN_PADDING / 2),

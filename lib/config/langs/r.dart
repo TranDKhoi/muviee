@@ -49,4 +49,7 @@ class R {
   static const String movie = "movie";
   static const String actor = "actor";
   static const String bio = "bio";
+  static const String year = "year";
+  static const String filter = "filter";
+  static const String selectCountry = "select country";
 }

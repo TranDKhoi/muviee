@@ -57,8 +57,7 @@ class BioPage extends StatelessWidget {
                     return FilledButton(
                       onPressed: () {
                         context.read<BioCubit>().saveUserBio(
-                            nickname: userCtr.text.trim(),
-                            country: countryCtr.text.trim());
+                            nickname: userCtr.text.trim(), country: countryCtr.text.trim());
                       },
                       child: Text(R.confirm.translate),
                     );

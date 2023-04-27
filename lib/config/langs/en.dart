@@ -51,4 +51,7 @@ final enLang = {
   R.movie: "Movie",
   R.actor: "Actor",
   R.bio: "Bio",
+  R.year: "Year",
+  R.filter: "Filter",
+  R.selectCountry: "Select country",
 };
