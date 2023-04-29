@@ -59,4 +59,6 @@ final enLang = {
   R.savedToFavorite: "Saved to favorite movies",
   R.removedFromFavorite: "Removed from favorite movies",
   R.letsaveyourfirstmovie: "Let's save your first movie",
+  R.loadingMovie: "Loading movie...",
+  R.getMovieFailed: "Get movie failed",
 };

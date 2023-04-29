@@ -13,15 +13,15 @@ extension WatchingField on WatchingPageState {
         child: AspectRatio(
           aspectRatio: isFullMode
               ? context.screenSize.width / context.screenSize.height
-              : _controller.value.aspectRatio,
+              : widget.controller!.value.aspectRatio,
           child: Stack(
             children: [
               //video
-              VideoPlayer(_controller),
+              VideoPlayer(widget.controller!),
               //play button
               ControlButton(
                 isShowButton: isShowButton,
-                controller: _controller,
+                controller: widget.controller!,
               ),
               //seek bar
               Positioned(
@@ -37,7 +37,7 @@ extension WatchingField on WatchingPageState {
                           duration: videoDuration,
                           position: state.props[0] as Duration,
                           onDrag: (val) {
-                            _controller.seekTo(val);
+                            widget.controller?.seekTo(val);
                           },
                           onFullTap: () {
                             SystemChrome.setPreferredOrientations([
@@ -66,7 +66,7 @@ extension WatchingField on WatchingPageState {
                     maintainState: true,
                     visible: isShowButton,
                     child: VolumeBar(onVolumeChanged: (val) {
-                      _controller.setVolume(val);
+                      widget.controller?.setVolume(val);
                     }),
                   ),
                 ),

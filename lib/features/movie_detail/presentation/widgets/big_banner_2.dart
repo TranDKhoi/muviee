@@ -144,7 +144,7 @@ class BigBanner2 extends StatelessWidget {
                               color: Colors.yellow,
                             ),
                             Text(
-                              "${movie.voteAverage.toStringAsFixed(1)}(${movie.voteCount})",
+                              "${movie.voteAverage.toStringAsFixed(1)}(${movie.voteCount.toShortForm})",
                             ),
                           ],
                         ),

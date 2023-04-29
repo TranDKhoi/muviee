@@ -2,33 +2,23 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:muviee/common/entity/movie_video_entity.dart';
-import 'package:muviee/features/profile/presentation/profile.dart';
-import 'package:muviee/features/watching/page/empty_page.dart';
-import 'package:muviee/features/watching/watching.dart';
-
-import '../../home/presentation/home.dart';
-import '../../search/presentation/search.dart';
+import 'package:video_player/video_player.dart';
 
 part 'bottombar_state.dart';
 
 class BottomBarCubit extends Cubit<BottomBarState> {
-  BottomBarCubit() : super(BottomBarInitial(currentIndex: 0));
+  BottomBarCubit() : super(BottomBarInitial());
   final PageController pageController = PageController(initialPage: 0);
-
-  final List<Widget> listPage = [
-    const HomePage(),
-    SearchPage(),
-    const EmptyPage(),
-    const ProfilePage(),
-  ];
+  ValueNotifier<VideoPlayerController?> controller = ValueNotifier<VideoPlayerController?>(null);
+  ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
 
   void changePage(int i) {
     pageController.jumpToPage(i);
-    emit(BottomBarInitial(currentIndex: i));
+    currentIndex.value = i;
   }
 
   void navigateToWatchingTab(MovieVideoEntity currentMovie) {
-    listPage[2] = WatchingPage(currentMovie: currentMovie);
+    controller.value = VideoPlayerController.network(currentMovie.key);
     changePage(2);
   }
 

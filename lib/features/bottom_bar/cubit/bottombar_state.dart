@@ -4,20 +4,23 @@ part of 'bottombar_cubit.dart';
 abstract class BottomBarState extends Equatable {}
 
 class BottomBarInitial extends BottomBarState {
-  final int currentIndex;
   final bool isHidden;
 
-  BottomBarInitial({required this.currentIndex, this.isHidden = false});
+  BottomBarInitial({
+    this.isHidden = false,
+  });
 
   @override
-  List<Object?> get props => [currentIndex, isHidden];
+  List<Object?> get props => [
+        isHidden,
+      ];
 
   BottomBarInitial copyWith({
     int? currentIndex,
     bool? isHidden,
+    VideoPlayerController? controller,
   }) {
     return BottomBarInitial(
-      currentIndex: currentIndex ?? this.currentIndex,
       isHidden: isHidden ?? this.isHidden,
     );
   }

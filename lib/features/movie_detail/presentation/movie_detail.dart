@@ -22,6 +22,7 @@ import 'package:muviee/features/profile/presentation/profile.dart';
 import 'package:muviee/utils/alert_util.dart';
 import 'package:muviee/utils/exception_util.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
+import 'package:muviee/utils/extensions/int_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:readmore/readmore.dart';
 

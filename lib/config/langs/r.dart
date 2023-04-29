@@ -58,4 +58,6 @@ class R {
   static const String savedToFavorite = "Saved to favorite movies";
   static const String removedFromFavorite = "Removed from favorite movies";
   static const String letsaveyourfirstmovie = "Let's save your first movie";
+  static const String loadingMovie = "Loading movie...";
+  static const String getMovieFailed = "Get movie failed";
 }

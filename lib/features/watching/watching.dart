@@ -12,6 +12,7 @@ import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/features/bottom_bar/cubit/bottombar_cubit.dart';
+import 'package:muviee/features/watching/page/empty_page.dart';
 import 'package:muviee/features/watching/widgets/option_item.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/duration_extension.dart';
@@ -20,7 +21,7 @@ import 'package:video_player/video_player.dart';
 
 import '../../common/entity/movie_video_entity.dart';
 import '../../config/langs/r.dart';
-
+import 'package:visibility_detector/visibility_detector.dart';
 part 'cubit/watching_cubit.dart';
 part 'cubit/watching_state.dart';
 part 'page/watching_page.dart';
