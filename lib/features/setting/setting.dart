@@ -13,6 +13,6 @@ import '../../config/langs/r.dart';
 import '../../config/styles.dart';
 import '../../utils/navigation_util.dart';
 import '../app/cubit/app_cubit.dart';
-import '../profile/profile.dart';
+import '../profile/presentation/profile.dart';
 
 part 'page/setting_page.dart';

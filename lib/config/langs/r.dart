@@ -54,4 +54,8 @@ class R {
   static const String selectCountry = "select country";
   static const String searchSomething = "search something";
   static const String somethingWentWrong = "Something went wrong";
+  static const String like = "Like";
+  static const String savedToFavorite = "Saved to favorite movies";
+  static const String removedFromFavorite = "Removed from favorite movies";
+  static const String letsaveyourfirstmovie = "Let's save your first movie";
 }

@@ -15,7 +15,7 @@ import 'package:muviee/common/models/country_model.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/font_size.dart';
 import 'package:muviee/di/injector.dart';
-import 'package:muviee/features/search/domain/entity/movie_search_entity.dart';
+import 'package:muviee/common/entity/movie_search_entity.dart';
 import 'package:muviee/features/search/presentation/page/filter_page.dart';
 import 'package:muviee/utils/alert_util.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';

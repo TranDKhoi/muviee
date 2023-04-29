@@ -11,4 +11,8 @@ abstract class MovieDetailRepository {
   Future<ReviewSearchEntity> getReviewOfMovie(int id);
 
   Future<MovieVideoEntity> getVideoOfMovie(int id);
+
+  Future<void> likeMovie(int id);
+
+  Future<void> unLikeMovie(int id);
 }

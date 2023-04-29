@@ -135,4 +135,14 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
 
     return entity;
   }
+
+  @override
+  Future<void> likeMovie(int id) async {
+    await MovieDetailService.ins.likeMovie(id);
+  }
+
+  @override
+  Future<void> unLikeMovie(int id) async {
+    await MovieDetailService.ins.unLikeMovie(id);
+  }
 }

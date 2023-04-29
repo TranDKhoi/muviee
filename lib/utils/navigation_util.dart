@@ -19,13 +19,15 @@ class NavigationUtil {
         MaterialPageRoute(builder: (_) => page), (route) => false);
   }
 
-  static Future pushNamedAndRemoveUntil(
-      {required String route, Object? args}) async {
-    return await _navigatorKey?.pushNamedAndRemoveUntil(route, (r) => false,
-        arguments: args);
+  static Future pushNamedAndRemoveUntil({required String route, Object? args}) async {
+    return await _navigatorKey?.pushNamedAndRemoveUntil(route, (r) => false, arguments: args);
   }
 
   static pop({Object? result}) {
     _navigatorKey?.pop(result);
+  }
+
+  static popToRoot({Object? result}) {
+    _navigatorKey?.popUntil((r) => r.isFirst);
   }
 }

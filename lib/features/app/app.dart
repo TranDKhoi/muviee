@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:muviee/config/theme.dart';
+import 'package:muviee/di/injector.dart';
 
 import '../../../utils/global_keys.dart';
 import '../../utils/language_util.dart';
 import '../bottom_bar/cubit/bottombar_cubit.dart';
 import '../onboarding/presentation/pages/onboarding_page.dart';
+import '../profile/presentation/profile.dart';
 import 'cubit/app_cubit.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,6 +20,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => AppCubit()),
         BlocProvider(create: (_) => BottomBarCubit()),
+        BlocProvider(
+            create: (_) => injector<ProfileCubit>()
+              ..getMyFavorite()
+              ..getMyReview()),
       ],
       child: BlocBuilder<AppCubit, AppState>(
         builder: (context, state) {

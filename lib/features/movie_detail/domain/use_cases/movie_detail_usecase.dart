@@ -14,6 +14,8 @@ abstract class MovieDetailUseCase {
   Future<ReviewSearchEntity> getReviewOfMovie(int id);
 
   Future<MovieVideoEntity> getVideoOfMovie(int id);
+  Future<void> likeMovie(int id);
+  Future<void> unLikeMovie(int id);
 }
 
 @Injectable(as: MovieDetailUseCase)
@@ -40,5 +42,15 @@ class MovieDetailUseCaseImpl implements MovieDetailUseCase {
   @override
   Future<MovieVideoEntity> getVideoOfMovie(int id) async {
     return await _repo.getVideoOfMovie(id);
+  }
+
+  @override
+  Future<void> likeMovie(int id) async {
+    await _repo.likeMovie(id);
+  }
+
+  @override
+  Future<void> unLikeMovie(int id) async {
+    await _repo.unLikeMovie(id);
   }
 }

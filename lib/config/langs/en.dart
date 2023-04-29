@@ -55,4 +55,8 @@ final enLang = {
   R.filter: "Filter",
   R.selectCountry: "Select country",
   R.searchSomething: "Search something",
+  R.like: "Like",
+  R.savedToFavorite: "Saved to favorite movies",
+  R.removedFromFavorite: "Removed from favorite movies",
+  R.letsaveyourfirstmovie: "Let's save your first movie",
 };

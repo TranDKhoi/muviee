@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:muviee/common/entity/movie_video_entity.dart';
-import 'package:muviee/features/profile/profile.dart';
+import 'package:muviee/features/profile/presentation/profile.dart';
 import 'package:muviee/features/watching/page/empty_page.dart';
 import 'package:muviee/features/watching/watching.dart';
 

@@ -8,12 +8,12 @@ class MovieDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          injector<MovieDetailBloc>()..add(LoadMovieDetailEvent(movie.id)),
+      create: (context) => injector<MovieDetailBloc>()..add(LoadMovieDetailEvent(movie.id)),
       child: AppScaffold(
         isHaveAppBar: true,
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               BigBanner2(movie: movie),
               StoryText(movie: movie),

@@ -8,6 +8,7 @@ class BaseService {
   //api route
   static const String LOGIN_PATH = "Auth/login";
   static const String GET_USER = "User";
+  static const String USER_FAVORITE = "User/favourite";
   static const String GET_POPULAR_MOVIE = "Movie/popular";
   static const String GET_LATEST_MOVIE = "Movie/now_playing";
   static const String GET_TOP_MOVIE = "Movie/top_rated";

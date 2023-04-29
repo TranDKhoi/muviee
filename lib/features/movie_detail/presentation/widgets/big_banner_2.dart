@@ -13,7 +13,7 @@ class BigBanner2 extends StatelessWidget {
     return BlocListener<MovieDetailBloc, MovieDetailState>(
       listener: (context, state) {
         if (state is GetMovieVideoSuccess) {
-          NavigationUtil.pop();
+          NavigationUtil.popToRoot();
           context.read<BottomBarCubit>().navigateToWatchingTab(state.movieVideo);
         }
       },

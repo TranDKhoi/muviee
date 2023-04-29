@@ -4,9 +4,9 @@ import 'package:muviee/common/entity/genre_entity.dart';
 import 'package:muviee/common/entity/movie_entity.dart';
 import 'package:muviee/features/search/data/data_sources/search_service.dart';
 import 'package:muviee/features/search/data/model/actor_search_model.dart';
-import 'package:muviee/features/search/data/model/movie_search_model.dart';
+import 'package:muviee/common/models/movie_search_model.dart';
 import 'package:muviee/features/search/domain/entity/actor_search_entity.dart';
-import 'package:muviee/features/search/domain/entity/movie_search_entity.dart';
+import 'package:muviee/common/entity/movie_search_entity.dart';
 import 'package:muviee/features/search/domain/repository/search_repository.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
