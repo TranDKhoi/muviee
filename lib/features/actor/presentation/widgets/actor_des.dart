@@ -3,10 +3,10 @@ part of actor;
 class ActorDes extends StatelessWidget {
   const ActorDes({
     super.key,
-    required this.actor,
+    required this.person,
   });
 
-  final ActorEntity actor;
+  final PersonEntity person;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ActorDes extends StatelessWidget {
           ),
           const SizedBox(height: AppDimens.SPACING),
           ReadMoreText(
-            actor.person.biography,
+            person.biography,
             trimLines: 5,
             colorClickableText: Colors.pink,
             trimMode: TrimMode.Line,

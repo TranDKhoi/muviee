@@ -3,10 +3,10 @@ part of actor;
 class ActorBanner extends StatelessWidget {
   const ActorBanner({
     super.key,
-    required this.actor,
+    required this.person,
   });
 
-  final ActorEntity actor;
+  final PersonEntity person;
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +29,19 @@ class ActorBanner extends StatelessWidget {
               Center(
                 child: CircleAvatar(
                   radius: context.screenSize.width / 5,
-                  backgroundImage: NetworkImage(actor.person.profilePath),
+                  backgroundColor: Colors.grey,
+                  backgroundImage: NetworkImage(person.profilePath),
                 ),
               ),
               const SizedBox(height: AppDimens.SPACING),
               Text(
-                actor.person.name,
+                person.name,
                 style: AppStyle.largeTitleTextStyle,
               ),
               const SizedBox(height: AppDimens.SPACING),
-              Text(actor.person.placeOfBirth),
+              Text(person.placeOfBirth),
               const SizedBox(height: AppDimens.SPACING),
-              Text(FormatUtil.toDDMMYY(actor.person.birthday)),
+              Text(FormatUtil.toDDMMYY(person.birthday)),
             ],
           ),
         ],

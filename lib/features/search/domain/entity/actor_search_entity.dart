@@ -1,15 +1,15 @@
 import 'package:muviee/common/entity/actor/person_entity.dart';
 
 class ActorSearchEntity {
-  int? page;
-  List<PersonEntity>? results;
-  int? totalPage;
-  int? totalResults;
+  final int page;
+  final List<PersonEntity> results;
+  final int totalPage;
+  final int totalResults;
 
-  ActorSearchEntity({
-    this.page,
-    this.results,
-    this.totalPage,
-    this.totalResults,
+  const ActorSearchEntity({
+    required this.page,
+    required this.results,
+    required this.totalPage,
+    required this.totalResults,
   });
 }

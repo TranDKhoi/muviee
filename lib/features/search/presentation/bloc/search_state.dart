@@ -9,18 +9,18 @@ class SearchInitial extends SearchState {
 }
 
 class SearchMovieLoaded extends SearchState {
-  final MovieSearchEntity searchEntity;
+  final MovieSearchEntity? searchEntity;
 
-  SearchMovieLoaded(this.searchEntity);
+  SearchMovieLoaded([this.searchEntity]);
 
   @override
   List<Object?> get props => [searchEntity];
 }
 
 class SearchActorLoaded extends SearchState {
-  final ActorSearchModel searchEntity;
+  final ActorSearchEntity? searchEntity;
 
-  SearchActorLoaded(this.searchEntity);
+  SearchActorLoaded([this.searchEntity]);
 
   @override
   List<Object?> get props => [searchEntity];

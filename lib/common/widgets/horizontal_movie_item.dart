@@ -32,9 +32,9 @@ class HorizontalMovieItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   movie.posterPath,
-                  errorBuilder: (_, __, ___) => SizedBox(
+                  errorBuilder: (_, __, ___) => Image.asset(
+                    "assets/images/default_avt.png",
                     width: context.screenSize.width * 0.3,
-                    child: const Placeholder(),
                   ),
                 ),
               ),

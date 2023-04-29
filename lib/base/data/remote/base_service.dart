@@ -11,6 +11,8 @@ class BaseService {
   static const String GET_POPULAR_MOVIE = "Movie/popular";
   static const String GET_LATEST_MOVIE = "Movie/now_playing";
   static const String GET_TOP_MOVIE = "Movie/top_rated";
+  static const String SEARCH_MOVIE = "Search/movie";
+  static const String SEARCH_ACTOR = "Search/person";
 
   late Dio dio;
 

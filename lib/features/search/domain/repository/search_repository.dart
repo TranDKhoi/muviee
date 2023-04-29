@@ -2,7 +2,7 @@ import '../entity/actor_search_entity.dart';
 import '../entity/movie_search_entity.dart';
 
 abstract class SearchRepository {
-  Future<ActorSearchEntity> searchActor();
+  Future<ActorSearchEntity> searchActor(String search, Map? filter);
 
-  Future<MovieSearchEntity> searchMovie();
+  Future<MovieSearchEntity> searchMovie(String search, Map? filter);
 }

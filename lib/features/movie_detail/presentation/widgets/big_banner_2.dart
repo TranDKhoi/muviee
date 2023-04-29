@@ -14,9 +14,7 @@ class BigBanner2 extends StatelessWidget {
       listener: (context, state) {
         if (state is GetMovieVideoSuccess) {
           NavigationUtil.pop();
-          context
-              .read<BottomBarCubit>()
-              .navigateToWatchingTab(state.movieVideo);
+          context.read<BottomBarCubit>().navigateToWatchingTab(state.movieVideo);
         }
       },
       child: SizedBox(
@@ -31,6 +29,12 @@ class BigBanner2 extends StatelessWidget {
                 width: double.infinity,
                 height: context.screenSize.height / 2,
                 fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Image.network(
+                  movie.posterPath,
+                  width: double.infinity,
+                  height: context.screenSize.height / 2,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             //foreground
@@ -43,18 +47,21 @@ class BigBanner2 extends StatelessWidget {
                     child: Image.network(
                       movie.backdropPath,
                       height: context.screenSize.height / 3.7,
-                      width: context.screenSize.width -
-                          AppDimens.SCREEN_PADDING * 2,
+                      width: context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
                       fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => Image.network(
+                        movie.posterPath,
+                        height: context.screenSize.height / 3.7,
+                        width: context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   //play button
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        context
-                            .read<MovieDetailBloc>()
-                            .add(GetMovieVideoEvent(movie.id));
+                        context.read<MovieDetailBloc>().add(GetMovieVideoEvent(movie.id));
                       },
                       child: ClipOval(
                         child: Container(
@@ -107,8 +114,7 @@ class BigBanner2 extends StatelessWidget {
                   ),
                   //genre and rating
                   SizedBox(
-                    width:
-                        context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
+                    width: context.screenSize.width - AppDimens.SCREEN_PADDING * 2,
                     child: Row(
                       children: [
                         SizedBox(

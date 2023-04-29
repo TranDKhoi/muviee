@@ -39,22 +39,43 @@ class SearchPageState extends State<SearchPage>
     return DefaultTabController(
       length: 2,
       child: BlocProvider(
-        create: (context) => _bloc,
+        create: (context) => _bloc..add(GetCountryEvent()),
         child: Scaffold(
           appBar: _searchAppBar(),
-          body: BlocBuilder<SearchBloc, SearchState>(
-            builder: (context, state) {
-              if (state is SearchMovieLoaded) {
-                return Center();
-              }
-              if (state is SearchActorLoaded) {
-                return Center();
-              }
-              if (state is SearchError) {
-                return Text("Something went wrong");
-              }
-              return Text("Search something");
-            },
+          body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
+              child: BlocBuilder<SearchBloc, SearchState>(
+                builder: (context, state) {
+                  if (state is SearchMovieLoaded) {
+                    if (_bloc.moviesSearch != null) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children:
+                            _bloc.moviesSearch!.results.map((e) => HorizontalMovieItem(e)).toList(),
+                      );
+                    }
+                    return Text(R.searchSomething.translate);
+                  }
+                  if (state is SearchActorLoaded) {
+                    if (_bloc.actorsSearch != null) {
+                      return Wrap(
+                        spacing: AppDimens.SPACING,
+                        runSpacing: AppDimens.SPACING,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: _bloc.actorsSearch!.results.map((e) => ActorItem(e)).toList(),
+                      );
+                    }
+                    return Text(R.searchSomething.translate);
+                  }
+                  if (state is SearchError) {
+                    return Text(R.somethingWentWrong.translate);
+                  }
+                  return Text(R.searchSomething.translate);
+                },
+              ),
+            ),
           ),
         ),
       ),

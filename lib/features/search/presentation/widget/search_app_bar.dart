@@ -23,7 +23,10 @@ extension SearchAppBar on SearchPageState {
       actions: [
         IconButton(
           onPressed: () async {
-            var res = await NavigationUtil.push(page: FilterPage());
+            var filter = await NavigationUtil.push(page: FilterPage(_bloc));
+            if (filter != null) {
+              _bloc.add(OnSearchEvent(searchController.text.trim(), filter));
+            }
           },
           icon: const Icon(Icons.filter_list),
         ),

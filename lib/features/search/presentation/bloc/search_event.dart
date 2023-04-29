@@ -14,9 +14,17 @@ class ChangePageEvent extends SearchEvent {
 
 class OnSearchEvent extends SearchEvent {
   final String searchString;
+  final Map<String, dynamic>? filter;
 
-  OnSearchEvent(this.searchString);
+  OnSearchEvent(this.searchString, [this.filter]);
 
   @override
-  List<Object?> get props => [searchString];
+  List<Object?> get props => [searchString, filter];
+}
+
+class GetCountryEvent extends SearchEvent {
+  GetCountryEvent();
+
+  @override
+  List<Object?> get props => [];
 }

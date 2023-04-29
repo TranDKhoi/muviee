@@ -52,4 +52,6 @@ class R {
   static const String year = "year";
   static const String filter = "filter";
   static const String selectCountry = "select country";
+  static const String searchSomething = "search something";
+  static const String somethingWentWrong = "Something went wrong";
 }

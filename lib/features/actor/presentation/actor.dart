@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/entity/actor/person_entity.dart';
 import 'package:muviee/common/widgets/horizontal_movie_item.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';

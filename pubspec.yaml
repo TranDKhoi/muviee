@@ -72,6 +72,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/lotties/
+    - assets/jsons/
 
   fonts:
     - family: SFPro

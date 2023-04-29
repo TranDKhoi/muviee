@@ -54,4 +54,5 @@ final enLang = {
   R.year: "Year",
   R.filter: "Filter",
   R.selectCountry: "Select country",
+  R.searchSomething: "Search something",
 };

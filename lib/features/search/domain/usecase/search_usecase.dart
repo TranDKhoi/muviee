@@ -4,9 +4,9 @@ import 'package:muviee/features/search/domain/entity/movie_search_entity.dart';
 import 'package:muviee/features/search/domain/repository/search_repository.dart';
 
 abstract class SearchUseCase {
-  Future<MovieSearchEntity> searchMovie();
+  Future<MovieSearchEntity> searchMovie(String search, Map? filter);
 
-  Future<ActorSearchEntity> searchActor();
+  Future<ActorSearchEntity> searchActor(String search, Map? filter);
 }
 
 @Injectable(as: SearchUseCase)
@@ -16,12 +16,12 @@ class SearchUseCaseImpl implements SearchUseCase {
   final SearchRepository _repo;
 
   @override
-  Future<ActorSearchEntity> searchActor() {
-    throw UnimplementedError();
+  Future<ActorSearchEntity> searchActor(String search, Map? filter) {
+    return _repo.searchActor(search, filter);
   }
 
   @override
-  Future<MovieSearchEntity> searchMovie() {
-    throw UnimplementedError();
+  Future<MovieSearchEntity> searchMovie(String search, Map? filter) {
+    return _repo.searchMovie(search, filter);
   }
 }

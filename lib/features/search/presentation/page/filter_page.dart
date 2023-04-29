@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
+import 'package:muviee/features/search/presentation/search.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:muviee/utils/global_keys.dart';
 import 'package:muviee/utils/navigation_util.dart';
@@ -10,7 +11,9 @@ import '../../../../common/widgets/auto_complete_textfield.dart';
 import '../../../../config/langs/r.dart';
 
 class FilterPage extends StatelessWidget {
-  FilterPage({Key? key}) : super(key: key);
+  FilterPage(this._bloc, {Key? key}) : super(key: key);
+
+  final SearchBloc _bloc;
 
   ValueNotifier<DateTime> selectedYear = ValueNotifier(DateTime.now());
   TextEditingController countryCtr = TextEditingController();
@@ -27,28 +30,30 @@ class FilterPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            //filter
-            Row(
-              children: [
-                Text(
-                  R.year.translate,
-                  style: AppStyle.largeTitleTextStyle,
-                ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    showYearPicker();
-                  },
-                  child: ValueListenableBuilder(
-                    valueListenable: selectedYear,
-                    builder: (_, DateTime value, __) => Text(
-                      value.year.toString(),
+            if (_bloc.currentIndex == 0)
+              //filter
+              Row(
+                children: [
+                  Text(
+                    R.year.translate,
+                    style: AppStyle.largeTitleTextStyle,
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      showYearPicker();
+                    },
+                    child: ValueListenableBuilder(
+                      valueListenable: selectedYear,
+                      builder: (_, DateTime value, __) => Text(
+                        value.year.toString(),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
             const SizedBox(height: AppDimens.SPACING * 3),
             //region
             Row(
@@ -66,11 +71,16 @@ class FilterPage extends StatelessWidget {
                       hintText: R.selectCountry.translate,
                     ),
                     controller: countryCtr,
-                    suggestions: ["Viet nam", "Spanol"],
+                    suggestions: _bloc.countries.map((e) => e.name).toList(),
                   ),
                 ),
               ],
-            )
+            ),
+            const Spacer(),
+            FilledButton(
+              onPressed: _confirmApplyFilter,
+              child: Text(R.confirm.translate),
+            ),
           ],
         ),
       ),
@@ -96,5 +106,19 @@ class FilterPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _confirmApplyFilter() {
+    if (_bloc.currentIndex == 0) {
+      NavigationUtil.pop(result: {
+        "year": selectedYear.value.year,
+        if (countryCtr.text.isNotEmpty)
+          "region": _bloc.countries.where((element) => countryCtr.text == element.name).first.code
+      });
+    } else {
+      NavigationUtil.pop(result: {
+        "region": _bloc.countries.where((element) => countryCtr.text == element.name).first.code
+      });
+    }
   }
 }
