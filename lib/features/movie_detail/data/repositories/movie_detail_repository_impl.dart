@@ -3,17 +3,17 @@ import 'package:muviee/common/entity/movie_video_entity.dart';
 import 'package:muviee/common/models/movie_video_model.dart';
 import 'package:muviee/common/entity/user_entity.dart';
 import 'package:muviee/features/movie_detail/data/data_sources/movie_detail_service.dart';
-import 'package:muviee/features/movie_detail/data/models/review/review_search_model.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/gallery_entity.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/image_info_entity.dart';
-import 'package:muviee/features/movie_detail/domain/entities/review/review_entity.dart';
-import 'package:muviee/features/movie_detail/domain/entities/review/review_search_entity.dart';
 import 'package:muviee/utils/extensions/dio_extension.dart';
 
 import '../../../../common/entity/actor/actor_entity.dart';
 import '../../../../common/entity/actor/person_entity.dart';
 import '../../../../common/entity/country_entity.dart';
+import '../../../../common/entity/review/review_entity.dart';
+import '../../../../common/entity/review/review_search_entity.dart';
 import '../../../../common/models/actor/actor_model.dart';
+import '../../../../common/models/review/review_search_model.dart';
 import '../../domain/repositories/movie_detail_repository.dart';
 import '../models/gallery/gallery_model.dart';
 
@@ -144,5 +144,10 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
   @override
   Future<void> unLikeMovie(int id) async {
     await MovieDetailService.ins.unLikeMovie(id);
+  }
+
+  @override
+  Future<void> saveMovieToMyHistory(int id) async {
+    await MovieDetailService.ins.saveMovieToMyHistory(id);
   }
 }

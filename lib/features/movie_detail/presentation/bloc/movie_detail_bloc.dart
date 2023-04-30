@@ -30,6 +30,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       MovieVideoEntity video = await _useCase.getVideoOfMovie(event.id);
       AlertUtil.hideLoading();
       emit(GetMovieVideoSuccess(movieVideo: video));
+      _useCase.saveMovieToMyHistory(event.id);
     } catch (e) {
       ExceptionUtil.handle(e);
     }

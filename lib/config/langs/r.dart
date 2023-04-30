@@ -66,4 +66,6 @@ class R {
   static const String pleaseFillAllTheFields = "Please fill all the fields";
   static const String greatJob = "Great job";
   static const String letswatchyourfirstmovie = "Let's watch your first movie on ";
+  static const String youhaventwatchedanymovieyet = "You haven't watched any movie yet";
+  static const String youhaventreviewedanymovieyet = "You haven't reviewed any movie yet";
 }

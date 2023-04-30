@@ -15,6 +15,7 @@ class AppScaffold extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: isHaveAppBar
           ? AppBar(
+              scrolledUnderElevation: 0,
               backgroundColor: Colors.transparent,
               leading: GestureDetector(
                 child: IconButton(

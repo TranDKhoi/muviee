@@ -29,4 +29,8 @@ class MovieDetailService extends BaseService {
   Future<Response> unLikeMovie(int id) async {
     return await dio.delete("${BaseService.USER_FAVORITE}/$id");
   }
+
+  Future<Response> saveMovieToMyHistory(int id) async {
+    return await dio.post("${BaseService.USER_HISTORY}/$id");
+  }
 }

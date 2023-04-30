@@ -20,7 +20,9 @@ class LatestMovie extends StatelessWidget {
               ),
               const Spacer(),
               MIconButton(
-                onTap: () {},
+                onTap: () {
+                  NavigationUtil.push(page: const ListMoviePage(MovieType.latest));
+                },
                 text: R.seeAll.translate,
                 icon: Icons.chevron_right_outlined,
               )

@@ -9,4 +9,8 @@ class ProfileService extends BaseService {
   Future<Response> getMyFavorite() async {
     return await dio.get(BaseService.USER_FAVORITE);
   }
+
+  Future<Response> getMyReview() async {
+    return await dio.get(BaseService.USER_REVIEW);
+  }
 }

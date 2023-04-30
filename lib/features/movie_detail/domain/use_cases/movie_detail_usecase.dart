@@ -4,7 +4,7 @@ import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_re
 
 import '../../../../common/entity/actor/actor_entity.dart';
 import '../../../../common/entity/movie_video_entity.dart';
-import '../entities/review/review_search_entity.dart';
+import '../../../../common/entity/review/review_search_entity.dart';
 
 abstract class MovieDetailUseCase {
   Future<List<ActorEntity>> getActorOfMovie(int id);
@@ -14,8 +14,12 @@ abstract class MovieDetailUseCase {
   Future<ReviewSearchEntity> getReviewOfMovie(int id);
 
   Future<MovieVideoEntity> getVideoOfMovie(int id);
+
   Future<void> likeMovie(int id);
+
   Future<void> unLikeMovie(int id);
+
+  Future<void> saveMovieToMyHistory(int id);
 }
 
 @Injectable(as: MovieDetailUseCase)
@@ -52,5 +56,10 @@ class MovieDetailUseCaseImpl implements MovieDetailUseCase {
   @override
   Future<void> unLikeMovie(int id) async {
     await _repo.unLikeMovie(id);
+  }
+
+  @override
+  Future<void> saveMovieToMyHistory(int id) async {
+    await _repo.saveMovieToMyHistory(id);
   }
 }

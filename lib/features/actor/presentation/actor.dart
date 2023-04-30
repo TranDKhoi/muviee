@@ -9,12 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:muviee/common/entity/actor/person_entity.dart';
 import 'package:muviee/common/widgets/horizontal_movie_item.dart';
+import 'package:muviee/common/widgets/photo_viewer.dart';
 import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/utils/exception_util.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
+import 'package:muviee/utils/navigation_util.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../common/entity/actor/actor_entity.dart';

@@ -29,7 +29,16 @@ class GalleryWidget extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (ctx, i) => ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(images[i].filePath)),
+                  child: GestureDetector(
+                      onTap: () {
+                        NavigationUtil.push(
+                          page: PhotoViewer(
+                            galleryItems: images.map((e) => e.filePath).toList(),
+                            selectedIndex: i,
+                          ),
+                        );
+                      },
+                      child: Image.network(images[i].filePath))),
               itemCount: images.length,
               separatorBuilder: (_, __) => const SizedBox(width: 16),
             ),

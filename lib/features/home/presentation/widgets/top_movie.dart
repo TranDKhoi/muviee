@@ -20,7 +20,9 @@ class TopRatedMovie extends StatelessWidget {
               ),
               const Spacer(),
               MIconButton(
-                onTap: () {},
+                onTap: () {
+                  NavigationUtil.push(page: const ListMoviePage(MovieType.topRated));
+                },
                 text: R.seeAll.translate,
                 icon: Icons.chevron_right_outlined,
               )

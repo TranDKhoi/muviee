@@ -1,9 +1,6 @@
-enum TimeUnit {
-  second,
-  minute,
-  hour,
-  day,
-  week,
-  month,
-  year,
+enum MovieType {
+  latest,
+  popular,
+  topRated,
+  recommended,
 }

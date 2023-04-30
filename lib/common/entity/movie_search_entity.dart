@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:muviee/common/entity/movie_entity.dart';
 
 class MovieSearchEntity {
@@ -6,7 +7,7 @@ class MovieSearchEntity {
   final int totalPage;
   final int totalResults;
 
-  MovieSearchEntity({
+  const MovieSearchEntity({
     required this.page,
     required this.results,
     required this.totalPage,

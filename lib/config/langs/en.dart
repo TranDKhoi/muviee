@@ -67,4 +67,6 @@ final enLang = {
   R.pleaseFillAllTheFields: "Please fill all the fields",
   R.greatJob: "Great job",
   R.letswatchyourfirstmovie: "Let's watch your first movie on ",
+  R.youhaventwatchedanymovieyet: "You haven't watched any movie yet",
+  R.youhaventreviewedanymovieyet: "You haven't reviewed any movie yet",
 };

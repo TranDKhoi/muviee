@@ -7,8 +7,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with AutomaticKeepAliveClientMixin<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<HomePage> {
   final pageController = PageController();
 
   @override
@@ -59,12 +58,9 @@ class _HomePageState extends State<HomePage>
                   if (state is AllMovieLoadedState) {
                     return Column(
                       children: [
-                        if (state.latestList.isNotEmpty)
-                          LatestMovie(state.latestList),
-                        if (state.popularList.isNotEmpty)
-                          PopularMovie(state.popularList),
-                        if (state.topRatedList.isNotEmpty)
-                          TopRatedMovie(state.topRatedList),
+                        if (state.latestList.isNotEmpty) LatestMovie(state.latestList),
+                        if (state.popularList.isNotEmpty) PopularMovie(state.popularList),
+                        if (state.topRatedList.isNotEmpty) TopRatedMovie(state.topRatedList),
                       ],
                     );
                   }

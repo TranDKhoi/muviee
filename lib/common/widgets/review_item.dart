@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:muviee/features/movie_detail/domain/entities/review/review_entity.dart';
 import 'package:muviee/utils/navigation_util.dart';
+
+import '../entity/review/review_entity.dart';
 
 class ReviewItem extends StatelessWidget {
   const ReviewItem(this.review, {Key? key}) : super(key: key);

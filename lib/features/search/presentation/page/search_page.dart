@@ -56,7 +56,7 @@ class SearchPageState extends State<SearchPage>
                             _bloc.moviesSearch!.results.map((e) => HorizontalMovieItem(e)).toList(),
                       );
                     }
-                    return Text(R.searchSomething.translate);
+                    return centerText(R.searchSomething.translate);
                   }
                   if (state is SearchActorLoaded) {
                     if (_bloc.actorsSearch != null) {
@@ -67,12 +67,12 @@ class SearchPageState extends State<SearchPage>
                         children: _bloc.actorsSearch!.results.map((e) => ActorItem(e)).toList(),
                       );
                     }
-                    return Text(R.searchSomething.translate);
+                    return centerText(R.searchSomething.translate);
                   }
                   if (state is SearchError) {
-                    return Text(R.somethingWentWrong.translate);
+                    return centerText(R.somethingWentWrong.translate);
                   }
-                  return Text(R.searchSomething.translate);
+                  return centerText(R.searchSomething.translate);
                 },
               ),
             ),
@@ -81,4 +81,6 @@ class SearchPageState extends State<SearchPage>
       ),
     );
   }
+
+  Widget centerText(String mess) => Center(child: Text(mess));
 }

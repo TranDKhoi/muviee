@@ -66,14 +66,23 @@ class _ProfilePageState extends State<ProfilePage> {
                       );
                     },
                   ),
-                  SettingItem(
-                    onTap: () {},
-                    icon: Icons.rate_review_rounded,
-                    title: R.review.translate,
-                    trailing: Text("253"),
+                  BlocBuilder<ProfileCubit, ProfileState>(
+                    builder: (context, state) {
+                      return SettingItem(
+                        onTap: () {
+                          NavigationUtil.push(page: ReviewPage());
+                        },
+                        icon: Icons.rate_review_rounded,
+                        title: R.review.translate,
+                        trailing:
+                            Text("${injector<ProfileCubit>().reviewList?.results.length ?? 0}"),
+                      );
+                    },
                   ),
                   SettingItem(
-                    onTap: () {},
+                    onTap: () {
+                      NavigationUtil.push(page: HistoryPage());
+                    },
                     icon: Icons.history,
                     title: R.history.translate,
                     trailing: const Icon(Icons.chevron_right_rounded),

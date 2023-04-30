@@ -1,7 +1,7 @@
 import '../../../../common/entity/actor/actor_entity.dart';
 import '../../../../common/entity/movie_video_entity.dart';
+import '../../../../common/entity/review/review_search_entity.dart';
 import '../entities/gallery/gallery_entity.dart';
-import '../entities/review/review_search_entity.dart';
 
 abstract class MovieDetailRepository {
   Future<List<ActorEntity>> getActorOfMovie(int id);
@@ -15,4 +15,6 @@ abstract class MovieDetailRepository {
   Future<void> likeMovie(int id);
 
   Future<void> unLikeMovie(int id);
+
+  Future<void> saveMovieToMyHistory(int id);
 }

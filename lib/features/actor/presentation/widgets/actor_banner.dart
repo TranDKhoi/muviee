@@ -27,10 +27,16 @@ class ActorBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: CircleAvatar(
-                  radius: context.screenSize.width / 5,
-                  backgroundColor: Colors.grey,
-                  backgroundImage: NetworkImage(person.profilePath),
+                child: GestureDetector(
+                  onTap: () {
+                    NavigationUtil.push(
+                        page: PhotoViewer(galleryItems: [person.profilePath], selectedIndex: 0));
+                  },
+                  child: CircleAvatar(
+                    radius: context.screenSize.width / 5,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: NetworkImage(person.profilePath),
+                  ),
                 ),
               ),
               const SizedBox(height: AppDimens.SPACING),

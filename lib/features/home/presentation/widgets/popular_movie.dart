@@ -20,7 +20,9 @@ class PopularMovie extends StatelessWidget {
               ),
               const Spacer(),
               MIconButton(
-                onTap: () {},
+                onTap: () {
+                  NavigationUtil.push(page: const ListMoviePage(MovieType.popular));
+                },
                 text: R.seeAll.translate,
                 icon: Icons.chevron_right_outlined,
               )

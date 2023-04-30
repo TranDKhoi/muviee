@@ -9,7 +9,6 @@ import 'package:muviee/config/dimens.dart';
 import 'package:muviee/config/styles.dart';
 import 'package:muviee/di/injector.dart';
 import 'package:muviee/features/auth/login/presentation/login.dart';
-import 'package:muviee/features/favorite/presentation/favorite.dart';
 import 'package:muviee/features/profile/domain/usecase/profile_usecase.dart';
 import 'package:muviee/services/shared_service.dart';
 import 'package:muviee/utils/exception_util.dart';
@@ -17,9 +16,13 @@ import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 
 import '../../../common/entity/movie_search_entity.dart';
+import '../../../common/entity/review/review_search_entity.dart';
 import '../../../common/models/movie_search_model.dart';
 import '../../../config/langs/r.dart';
 import '../../../utils/navigation_util.dart';
+import '../../my_favorite/presentation/favorite.dart';
+import '../../my_history/presentation/history.dart';
+import '../../my_review/presentation/review.dart';
 import '../../setting/setting.dart';
 
 part '../presentation/cubit/profile_cubit.dart';

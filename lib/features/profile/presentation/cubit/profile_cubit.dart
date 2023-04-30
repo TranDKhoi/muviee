@@ -7,6 +7,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileUseCase _useCase;
 
   MovieSearchEntity? favoriteList;
+  ReviewSearchEntity? reviewList;
 
   void logOut() async {
     await _useCase.logOut();
@@ -17,7 +18,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     try {
       _useCase.getMyFavorite().then((res) {
         favoriteList = res;
-        emit(ProfileDataLoadedState(res));
+        emit(ProfileDataLoadedState(res, null));
       });
     } catch (e) {
       ExceptionUtil.handle(e);
@@ -25,7 +26,12 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   void getMyReview() {
-    try {} catch (e) {
+    try {
+      _useCase.getMyReview().then((res) {
+        reviewList = res;
+        emit(ProfileDataLoadedState(null, res));
+      });
+    } catch (e) {
       ExceptionUtil.handle(e);
     }
   }
