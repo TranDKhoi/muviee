@@ -28,10 +28,10 @@ class AlertUtil {
       SnackBar(
         content: Text(message),
         duration: const Duration(milliseconds: 2000),
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(8.0),
         ),
       ),
     );

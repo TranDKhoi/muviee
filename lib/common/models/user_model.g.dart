@@ -10,6 +10,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       id: json['id'] as int?,
       username: json['username'] as String?,
       email: json['email'] as String?,
+      password: json['password'] as String?,
       country: json['country'] == null
           ? null
           : CountryModel.fromJson(json['country'] as Map<String, dynamic>),
@@ -20,5 +21,6 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'id': instance.id,
       'username': instance.username,
       'email': instance.email,
+      'password': instance.password,
       'country': instance.country,
     };

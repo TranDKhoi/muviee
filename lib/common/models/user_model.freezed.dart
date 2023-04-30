@@ -23,6 +23,7 @@ mixin _$UserModel {
   int? get id => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
   CountryModel? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,12 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({int? id, String? username, String? email, CountryModel? country});
+  $Res call(
+      {int? id,
+      String? username,
+      String? email,
+      String? password,
+      CountryModel? country});
 
   $CountryModelCopyWith<$Res>? get country;
 }
@@ -57,6 +63,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? id = freezed,
     Object? username = freezed,
     Object? email = freezed,
+    Object? password = freezed,
     Object? country = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,6 +78,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String?,
       country: freezed == country
           ? _value.country
@@ -99,7 +110,12 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       __$$_UserModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? username, String? email, CountryModel? country});
+  $Res call(
+      {int? id,
+      String? username,
+      String? email,
+      String? password,
+      CountryModel? country});
 
   @override
   $CountryModelCopyWith<$Res>? get country;
@@ -119,6 +135,7 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? username = freezed,
     Object? email = freezed,
+    Object? password = freezed,
     Object? country = freezed,
   }) {
     return _then(_$_UserModel(
@@ -134,6 +151,10 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -145,7 +166,8 @@ class __$$_UserModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
-  const _$_UserModel({this.id, this.username, this.email, this.country});
+  const _$_UserModel(
+      {this.id, this.username, this.email, this.password, this.country});
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
@@ -157,11 +179,13 @@ class _$_UserModel implements _UserModel {
   @override
   final String? email;
   @override
+  final String? password;
+  @override
   final CountryModel? country;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, email: $email, country: $country)';
+    return 'UserModel(id: $id, username: $username, email: $email, password: $password, country: $country)';
   }
 
   @override
@@ -173,12 +197,15 @@ class _$_UserModel implements _UserModel {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
             (identical(other.country, country) || other.country == country));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, email, country);
+  int get hashCode =>
+      Object.hash(runtimeType, id, username, email, password, country);
 
   @JsonKey(ignore: true)
   @override
@@ -199,6 +226,7 @@ abstract class _UserModel implements UserModel {
       {final int? id,
       final String? username,
       final String? email,
+      final String? password,
       final CountryModel? country}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -210,6 +238,8 @@ abstract class _UserModel implements UserModel {
   String? get username;
   @override
   String? get email;
+  @override
+  String? get password;
   @override
   CountryModel? get country;
   @override

@@ -1,14 +1,16 @@
+import '../config/langs/r.dart';
+
 class Validation {
-  static String? validEmail(String text) {
+  static bool validEmail(String email) {
     String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = RegExp(pattern);
-    if (text.isEmpty) {
-      return 'Email không được rỗng';
-    } else if (!regex.hasMatch(text)) {
-      return 'Email không đúng định dạng';
+    if (email.isEmpty) {
+      return false;
+    } else if (!regex.hasMatch(email)) {
+      return false;
     } else {
-      return null;
+      return true;
     }
   }
 }

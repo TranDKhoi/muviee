@@ -2,9 +2,18 @@ part of verify_forgot;
 
 @injectable
 class VerifyForgotCubit extends Cubit<VerifyForgotState> {
-  VerifyForgotCubit() : super(VerifyForgotInitial());
+  VerifyForgotCubit(this._useCase) : super(VerifyForgotInitial());
 
-  void verifyCode(String code) {
-    emit(VerifyForgotSuccess());
+  final VerifyForgotUseCase _useCase;
+
+  Future<void> verifyCode(String email, String code) async {
+    try {
+      AlertUtil.showLoading();
+      var res = await _useCase.verifyCode(email, code);
+      AlertUtil.hideLoading();
+      emit(VerifyForgotSuccess(res));
+    } catch (e) {
+      ExceptionUtil.handle(e);
+    }
   }
 }

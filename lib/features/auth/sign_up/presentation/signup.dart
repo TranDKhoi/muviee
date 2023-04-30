@@ -6,6 +6,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:muviee/features/auth/sign_up/domain/entities/signup_entity.dart';
+import 'package:muviee/utils/alert_util.dart';
 import 'package:muviee/utils/exception_util.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
@@ -17,6 +19,7 @@ import '../../../../config/styles.dart';
 import '../../../../di/injector.dart';
 import '../../../../utils/navigation_util.dart';
 import '../../verify_signup/presentation/verify_signup.dart';
+import '../domain/use_cases/signup_usecase.dart';
 
 part 'bloc/signup_bloc.dart';
 part 'bloc/signup_event.dart';

@@ -60,4 +60,10 @@ class R {
   static const String letsaveyourfirstmovie = "Let's save your first movie";
   static const String loadingMovie = "Loading movie...";
   static const String getMovieFailed = "Get movie failed";
+  static const String passwordMustAtLeast6char = "Password must at least 6 character";
+  static const String passwordsDoNotMatch = "Passwords do not match";
+  static const String invalidEmailAddress = "Invalid email address";
+  static const String pleaseFillAllTheFields = "Please fill all the fields";
+  static const String greatJob = "Great job";
+  static const String letswatchyourfirstmovie = "Let's watch your first movie on ";
 }

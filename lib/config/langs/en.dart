@@ -61,4 +61,10 @@ final enLang = {
   R.letsaveyourfirstmovie: "Let's save your first movie",
   R.loadingMovie: "Loading movie...",
   R.getMovieFailed: "Get movie failed",
+  R.passwordMustAtLeast6char: "Password must at least 6 character",
+  R.passwordsDoNotMatch: "Passwords do not match",
+  R.invalidEmailAddress: "Invalid email address",
+  R.pleaseFillAllTheFields: "Please fill all the fields",
+  R.greatJob: "Great job",
+  R.letswatchyourfirstmovie: "Let's watch your first movie on ",
 };

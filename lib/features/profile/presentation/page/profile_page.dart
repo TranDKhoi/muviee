@@ -29,11 +29,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       "https://th.bing.com/th/id/OIP.64GgWje_ynFTjhu93we44gHaHO?w=187&h=183&c=7&r=0&o=5&pid=1.7"),
                 ),
               ),
+              const SizedBox(height: AppDimens.SPACING / 2),
               Text(
                 GlobalData.ins.currentUser?.email ?? "@email",
                 style: AppStyle.mediumTitleTextStyle,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: AppDimens.SPACING / 2),
               Text(
                 GlobalData.ins.currentUser?.username ?? "@username",
                 style: const TextStyle(

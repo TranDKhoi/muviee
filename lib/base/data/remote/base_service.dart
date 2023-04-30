@@ -7,6 +7,10 @@ class BaseService {
 
   //api route
   static const String LOGIN_PATH = "Auth/login";
+  static const String REGISTER_PATH = "Auth/register";
+  static const String VERIFY_SIGNUP_PATH = "Auth/verify-account";
+  static const String FORGOT_PASS_PATH = "Auth/lost-account";
+  static const String RESET_PASS_PATH = "Auth/reset-account";
   static const String GET_USER = "User";
   static const String USER_FAVORITE = "User/favourite";
   static const String GET_POPULAR_MOVIE = "Movie/popular";

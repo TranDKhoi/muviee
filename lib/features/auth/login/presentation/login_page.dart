@@ -11,7 +11,11 @@ class LoginPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => injector<LoginBloc>(),
       child: Scaffold(
-        body: Image.asset("assets/images/login_image.jpg"),
+        body: Image.asset(
+          "assets/images/login_image.jpg",
+          width: context.screenSize.width,
+          fit: BoxFit.cover,
+        ),
         bottomSheet: Wrap(
           children: [
             Padding(
@@ -39,13 +43,12 @@ class LoginPage extends StatelessWidget {
                     hintText: R.password.translate,
                     preIcon: Icons.lock,
                   ),
-                  const SizedBox(height: AppDimens.SPACING * 3),
+                  const SizedBox(height: AppDimens.SPACING * 2),
                   //login button
                   BlocConsumer<LoginBloc, LoginState>(
                     listener: (context, state) {
                       if (state is LoginSuccessState) {
-                        NavigationUtil.pushAndRemoveUntil(
-                            page: BottomBarPage());
+                        NavigationUtil.pushAndRemoveUntil(page: const BottomBarPage());
                       }
                     },
                     builder: (context, state) {
@@ -60,8 +63,7 @@ class LoginPage extends StatelessWidget {
                     },
                   ),
                   const Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: AppDimens.SPACING * 2),
+                    padding: EdgeInsets.symmetric(vertical: AppDimens.SPACING * 2),
                     child: Divider(),
                   ),
                   //other options
@@ -72,8 +74,7 @@ class LoginPage extends StatelessWidget {
                         //forgot pass button
                         GestureDetector(
                             child: Text(R.forgotPassword.translate),
-                            onTap: () =>
-                                NavigationUtil.push(page: ForgotPassPage())),
+                            onTap: () => NavigationUtil.push(page: ForgotPassPage())),
                         const VerticalDivider(),
                         //sign up button
                         GestureDetector(

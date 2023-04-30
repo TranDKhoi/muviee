@@ -16,41 +16,45 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.asset("assets/images/boarding.jpg"),
-      bottomSheet: SizedBox(
-        height: context.screenSize.height / 3,
-        width: double.maxFinite,
-        child: Padding(
-          padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                R.neverMissMovies.translate,
-                textAlign: TextAlign.start,
-                style: AppStyle.largeTitleTextStyle,
-              ),
-              const SizedBox(height: AppDimens.SPACING * 3),
-              Text(
-                R.beTheFirstOne.translate,
-                textAlign: TextAlign.start,
-              ),
-              const Spacer(),
-              FilledButton(
-                onPressed: () {
-                  if (GlobalData.ins.currentUser?.token != null) {
-                    NavigationUtil.pushAndRemoveUntil(page: BottomBarPage());
-                  } else {
-                    NavigationUtil.pushAndRemoveUntil(page: LoginPage());
-                  }
-                },
-                child: Text(
-                  R.getStarted.translate,
+      body: Image.asset(
+        "assets/images/boarding.jpg",
+        width: context.screenSize.width,
+        fit: BoxFit.cover,
+      ),
+      bottomSheet: Wrap(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  R.neverMissMovies.translate,
+                  textAlign: TextAlign.start,
+                  style: AppStyle.largeTitleTextStyle,
                 ),
-              ),
-            ],
+                const SizedBox(height: AppDimens.SPACING * 2),
+                Text(
+                  R.beTheFirstOne.translate,
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(height: AppDimens.SPACING * 2),
+                FilledButton(
+                  onPressed: () {
+                    if (GlobalData.ins.currentUser?.token != null) {
+                      NavigationUtil.pushAndRemoveUntil(page: const BottomBarPage());
+                    } else {
+                      NavigationUtil.pushAndRemoveUntil(page: LoginPage());
+                    }
+                  },
+                  child: Text(
+                    R.getStarted.translate,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

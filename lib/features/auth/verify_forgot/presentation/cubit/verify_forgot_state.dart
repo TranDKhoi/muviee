@@ -9,6 +9,10 @@ class VerifyForgotInitial extends VerifyForgotState {
 }
 
 class VerifyForgotSuccess extends VerifyForgotState {
+  final String tempToken;
+
+  VerifyForgotSuccess(this.tempToken);
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [tempToken];
 }

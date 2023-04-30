@@ -2,9 +2,18 @@ part of forgot_pass;
 
 @injectable
 class ForgotPassCubit extends Cubit<ForgotPassState> {
-  ForgotPassCubit() : super(ForgotPassInitial());
+  ForgotPassCubit(this._useCase) : super(ForgotPassInitial());
 
-  void confirmForgotClicked(String email) {
-    emit(ConfirmSuccessState());
+  final ForgotPassUseCase _useCase;
+
+  void confirmForgotClicked(String email) async {
+    try {
+      AlertUtil.showLoading();
+      await _useCase.confirmForgotPass(email.trim());
+      AlertUtil.hideLoading();
+      emit(ConfirmSuccessState());
+    } catch (e) {
+      ExceptionUtil.handle(e);
+    }
   }
 }
