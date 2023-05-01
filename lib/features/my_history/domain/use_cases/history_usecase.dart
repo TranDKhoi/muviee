@@ -5,6 +5,7 @@ import '../repositories/hisory_repository.dart';
 
 abstract class HistoryUseCase {
   Future<List<MovieEntity>> getMyHistory();
+  Future<void> deleteMovie(int id);
 }
 
 @Injectable(as: HistoryUseCase)
@@ -16,5 +17,10 @@ class HistoryUseCaseImpl implements HistoryUseCase {
   @override
   Future<List<MovieEntity>> getMyHistory() async {
     return await _repo.getMyHistory();
+  }
+
+  @override
+  Future<void> deleteMovie(int id) async {
+    return await _repo.deleteMovie(id);
   }
 }

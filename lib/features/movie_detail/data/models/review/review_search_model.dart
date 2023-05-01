@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:muviee/common/models/review/review_model.dart';
+import 'package:muviee/features/movie_detail/data/models/review/review_model.dart';
 
 part 'review_search_model.freezed.dart';
 

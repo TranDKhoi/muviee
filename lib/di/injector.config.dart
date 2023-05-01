@@ -174,7 +174,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i44.VerifySignupRepositoryImpl());
     gh.factory<_i45.VerifySignupUseCase>(
         () => _i45.VerifySignupUseCaseImpl(gh<_i43.VerifySignupRepository>()));
-    gh.factory<_i46.WatchingCubit>(() => _i46.WatchingCubit());
+    gh.factory<_i46.WatchingCubit>(
+        () => _i46.WatchingCubit(gh<_i27.MovieDetailUseCase>()));
     gh.factory<_i47.ActorCubit>(() => _i47.ActorCubit(gh<_i5.ActorUseCase>()));
     gh.factory<_i48.ChangePassCubit>(
         () => _i48.ChangePassCubit(gh<_i9.ChangePassUseCase>()));

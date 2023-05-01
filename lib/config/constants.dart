@@ -1,3 +1,6 @@
 class AppConstant {
-  static const String USER_MODE = "buyer";
+  static String downloadDir = '';
+
+  static String MOVIE_PATH = "$downloadDir/movie";
+  static String PICTURE_PATH = "$downloadDir/picture";
 }

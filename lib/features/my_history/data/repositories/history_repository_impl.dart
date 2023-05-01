@@ -48,4 +48,9 @@ class HistoryRepositoryImpl implements HistoryRepository {
 
     return movieEntities;
   }
+
+  @override
+  Future<void> deleteMovie(int id) async {
+    await HistoryService.ins.deleteMovie(id);
+  }
 }

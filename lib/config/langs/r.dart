@@ -68,4 +68,16 @@ class R {
   static const String letswatchyourfirstmovie = "Let's watch your first movie on ";
   static const String youhaventwatchedanymovieyet = "You haven't watched any movie yet";
   static const String youhaventreviewedanymovieyet = "You haven't reviewed any movie yet";
+  static const String warning = "Warning";
+  static const String areyousurewanttodeletethismovie =
+      'Are you sure you want to delete this movie?';
+  static const String no = "No";
+  static const String yes = "Yes";
+  static const String placeAComment = "Place a comment";
+  static const String yourComment = "Your comment";
+  static const String submit = "Submit";
+  static const String submittedSuccessfully = "Submitted successfully";
+  static const String areyousureyouwanttodeletethisreview =
+      "Are you sure you want to delete this review?";
+  static const String editComment = "Edit comment";
 }

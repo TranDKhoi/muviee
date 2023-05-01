@@ -10,7 +10,7 @@ class ProfileInitial extends ProfileState {
 
 class ProfileDataLoadedState extends ProfileState {
   final MovieSearchEntity? favorite;
-  final ReviewSearchEntity? reviews;
+  final MyReviewSearchEntity? reviews;
 
   ProfileDataLoadedState([this.favorite, this.reviews]);
 

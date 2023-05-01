@@ -62,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         icon: Icons.bookmark_added,
                         title: R.saved.translate,
                         trailing:
-                            Text("${injector<ProfileCubit>().favoriteList?.results.length ?? 0}"),
+                            Text("${injector<ProfileCubit>().favoriteList?.totalResults ?? 0}"),
                       );
                     },
                   ),
@@ -74,8 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                         icon: Icons.rate_review_rounded,
                         title: R.review.translate,
-                        trailing:
-                            Text("${injector<ProfileCubit>().reviewList?.results.length ?? 0}"),
+                        trailing: Text("${injector<ProfileCubit>().reviewList?.totalResults ?? 0}"),
                       );
                     },
                   ),

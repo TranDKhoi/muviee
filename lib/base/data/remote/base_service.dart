@@ -12,9 +12,9 @@ class BaseService {
   static const String FORGOT_PASS_PATH = "Auth/lost-account";
   static const String RESET_PASS_PATH = "Auth/reset-account";
   static const String GET_USER = "User";
-  static const String USER_FAVORITE = "User/favourite";
-  static const String USER_REVIEW = "User/review";
-  static const String USER_HISTORY = "User/histories";
+  static const String USER_FAVORITE = "Favourite";
+  static const String USER_REVIEW = "Review";
+  static const String USER_HISTORY = "History";
   static const String GET_MOVIE = "Movie";
   static const String GET_POPULAR_MOVIE = "Movie/popular";
   static const String GET_LATEST_MOVIE = "Movie/now_playing";

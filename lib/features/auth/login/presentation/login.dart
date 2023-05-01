@@ -11,9 +11,11 @@ import 'package:muviee/config/styles.dart';
 import 'package:muviee/features/auth/verify_signup/presentation/verify_signup.dart';
 import 'package:muviee/features/bottom_bar/bottom_bar_page.dart';
 import 'package:muviee/features/success/success_page.dart';
+import 'package:muviee/features/watching/watching.dart';
 import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 import 'package:muviee/utils/navigation_util.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../../../config/langs/r.dart';
 import '../../../../di/injector.dart';

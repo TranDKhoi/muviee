@@ -8,6 +8,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     on<LoadMovieDetailEvent>(_loadMovieDetail);
     on<GetMovieVideoEvent>(_getMovieVideo);
     on<LikeMovieEvent>(_onLikeMovieEvent);
+    on<SubmitReviewEvent>(_onSubmitReview);
   }
 
   FutureOr<void> _loadMovieDetail(
@@ -23,14 +24,14 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     }
   }
 
-  Future<FutureOr<void>> _getMovieVideo(
-      GetMovieVideoEvent event, Emitter<MovieDetailState> emit) async {
+  FutureOr<void> _getMovieVideo(GetMovieVideoEvent event, Emitter<MovieDetailState> emit) async {
     try {
       AlertUtil.showLoading();
       MovieVideoEntity video = await _useCase.getVideoOfMovie(event.id);
       AlertUtil.hideLoading();
       emit(GetMovieVideoSuccess(movieVideo: video));
       _useCase.saveMovieToMyHistory(event.id);
+      GlobalData.ins.currentMovieId = event.id;
     } catch (e) {
       ExceptionUtil.handle(e);
     }
@@ -52,6 +53,20 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
         _useCase.likeMovie(event.id).then((value) => injector<ProfileCubit>().getMyFavorite());
         AlertUtil.showToast(R.savedToFavorite.translate);
       }
+    } catch (e) {
+      ExceptionUtil.handle(e);
+    }
+  }
+
+  Future<FutureOr<void>> _onSubmitReview(
+      SubmitReviewEvent event, Emitter<MovieDetailState> emit) async {
+    try {
+      AlertUtil.showLoading();
+      await _useCase.submitReview(event.id, event.content.trim(), event.rating);
+      AlertUtil.hideLoading();
+
+      AlertUtil.showToast(R.submittedSuccessfully.translate);
+      injector<ProfileCubit>().getMyReview();
     } catch (e) {
       ExceptionUtil.handle(e);
     }

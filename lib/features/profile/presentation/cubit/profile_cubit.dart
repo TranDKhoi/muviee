@@ -7,7 +7,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileUseCase _useCase;
 
   MovieSearchEntity? favoriteList;
-  ReviewSearchEntity? reviewList;
+  MyReviewSearchEntity? reviewList;
 
   void logOut() async {
     await _useCase.logOut();

@@ -20,7 +20,7 @@ class ReviewPage extends StatelessWidget {
                   return const Center(child: Text(R.youhaventreviewedanymovieyet));
                 }
                 return ListView.separated(
-                  itemBuilder: (ctx, i) => ReviewItem(state.reviews.results[i]),
+                  itemBuilder: (ctx, i) => UserReview(state.reviews.results[i]),
                   separatorBuilder: (_, __) => const SizedBox(height: AppDimens.SPACING),
                   itemCount: state.reviews.results.length,
                 );

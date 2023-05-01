@@ -9,7 +9,7 @@ class ReviewInitial extends ReviewState {
 }
 
 class ReviewLoaded extends ReviewState {
-  final ReviewSearchEntity reviews;
+  final MyReviewSearchEntity reviews;
 
   ReviewLoaded(this.reviews);
 

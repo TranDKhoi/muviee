@@ -1,9 +1,11 @@
 part of movie_detail;
 
 class MovieDetailPage extends StatelessWidget {
-  const MovieDetailPage(this.movie, {Key? key}) : super(key: key);
+  MovieDetailPage(this.movie, {Key? key}) : super(key: key);
 
   final MovieEntity movie;
+  final TextEditingController commentCtr = TextEditingController();
+  double rating = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,22 @@ class MovieDetailPage extends StatelessWidget {
                           GalleryWidget(state.gallery.backdrops),
                         if (state.reviewSearch.results.isNotEmpty)
                           ReviewWidget(state.reviewSearch.results),
+                        Padding(
+                          padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
+                          child: MReviewField(
+                            onRatingChanged: (val) => rating = val * 2,
+                            cmtCtr: commentCtr,
+                            onSubmit: () {
+                              context.read<MovieDetailBloc>().add(
+                                    SubmitReviewEvent(
+                                      id: movie.id,
+                                      content: commentCtr.text,
+                                      rating: rating,
+                                    ),
+                                  );
+                            },
+                          ),
+                        ),
                       ],
                     );
                   }

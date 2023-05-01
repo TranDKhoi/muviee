@@ -1,10 +1,13 @@
 import 'package:injectable/injectable.dart';
+import 'package:muviee/exceptions/app_exception.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/gallery_entity.dart';
 import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_repository.dart';
+import 'package:muviee/utils/extensions/translate_extension.dart';
 
 import '../../../../common/entity/actor/actor_entity.dart';
 import '../../../../common/entity/movie_video_entity.dart';
-import '../../../../common/entity/review/review_search_entity.dart';
+import '../../../../config/langs/r.dart';
+import '../review/review_search_entity.dart';
 
 abstract class MovieDetailUseCase {
   Future<List<ActorEntity>> getActorOfMovie(int id);
@@ -14,6 +17,8 @@ abstract class MovieDetailUseCase {
   Future<ReviewSearchEntity> getReviewOfMovie(int id);
 
   Future<MovieVideoEntity> getVideoOfMovie(int id);
+
+  Future<void> submitReview(int id, String content, double rating);
 
   Future<void> likeMovie(int id);
 
@@ -61,5 +66,13 @@ class MovieDetailUseCaseImpl implements MovieDetailUseCase {
   @override
   Future<void> saveMovieToMyHistory(int id) async {
     await _repo.saveMovieToMyHistory(id);
+  }
+
+  @override
+  Future<void> submitReview(int id, String content, double rating) async {
+    if (content.trim().isEmpty) {
+      throw InvalidField(R.pleaseFillAllTheFields.translate);
+    }
+    await _repo.submitReview(id, content.trim(), rating);
   }
 }

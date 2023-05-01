@@ -21,7 +21,7 @@ class HistoryPage extends StatelessWidget {
                   return Center(child: Text(R.youhaventwatchedanymovieyet.translate));
                 }
                 return ListView.separated(
-                  itemBuilder: (ctx, i) => HorizontalMovieItem(state.movies[i]),
+                  itemBuilder: (ctx, i) => HistoryItem(state.movies[i]),
                   separatorBuilder: (_, __) => const SizedBox(height: AppDimens.SPACING),
                   itemCount: state.movies.length,
                 );

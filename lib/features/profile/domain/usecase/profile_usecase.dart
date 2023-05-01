@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:muviee/common/entity/movie_search_entity.dart';
-import 'package:muviee/common/entity/review/review_search_entity.dart';
 
+import '../../../../common/entity/my_review/my_review_search_entity.dart';
 import '../repository/profile_repository.dart';
 
 abstract class ProfileUseCase {
@@ -9,7 +9,7 @@ abstract class ProfileUseCase {
 
   Future<MovieSearchEntity> getMyFavorite();
 
-  Future<ReviewSearchEntity> getMyReview();
+  Future<MyReviewSearchEntity> getMyReview();
 }
 
 @Injectable(as: ProfileUseCase)
@@ -29,7 +29,7 @@ class ProfileUseCaseImpl implements ProfileUseCase {
   }
 
   @override
-  Future<ReviewSearchEntity> getMyReview() {
+  Future<MyReviewSearchEntity> getMyReview() {
     return _repo.getMyReview();
   }
 }

@@ -16,8 +16,9 @@ import 'package:muviee/utils/extensions/context_extension.dart';
 import 'package:muviee/utils/extensions/translate_extension.dart';
 
 import '../../../common/entity/movie_search_entity.dart';
-import '../../../common/entity/review/review_search_entity.dart';
+import '../../../common/entity/my_review/my_review_search_entity.dart';
 import '../../../common/models/movie_search_model.dart';
+import '../../../common/models/my_review/my_review_search_model.dart';
 import '../../../config/langs/r.dart';
 import '../../../utils/navigation_util.dart';
 import '../../my_favorite/presentation/favorite.dart';

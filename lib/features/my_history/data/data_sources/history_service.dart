@@ -9,4 +9,8 @@ class HistoryService extends BaseService {
   Future<Response> getMyHistory() async {
     return await dio.get(BaseService.USER_HISTORY);
   }
+
+  Future<Response> deleteMovie(int id) async {
+    return await dio.delete("${BaseService.USER_HISTORY}/$id");
+  }
 }

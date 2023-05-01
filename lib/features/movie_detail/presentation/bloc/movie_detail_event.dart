@@ -29,3 +29,18 @@ class LikeMovieEvent extends MovieDetailEvent {
   @override
   List<Object?> get props => [id];
 }
+
+class SubmitReviewEvent extends MovieDetailEvent {
+  final int id;
+  final String content;
+  final double rating;
+
+  SubmitReviewEvent({
+    required this.id,
+    required this.content,
+    required this.rating,
+  });
+
+  @override
+  List<Object> get props => [id, content, rating];
+}

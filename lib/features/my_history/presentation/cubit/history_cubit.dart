@@ -14,4 +14,13 @@ class HistoryCubit extends Cubit<HistoryState> {
       ExceptionUtil.handle(e);
     }
   }
+
+  void deleteMovie(int id) async {
+    try {
+      await _useCase.deleteMovie(id);
+      loadMyHistory();
+    } catch (e) {
+      ExceptionUtil.handle(e);
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:muviee/base/data/remote/base_service.dart';
+import 'package:muviee/common/models/my_review/my_review_model.dart';
 
 class MovieDetailService extends BaseService {
   static final ins = MovieDetailService._();
@@ -23,7 +24,7 @@ class MovieDetailService extends BaseService {
   }
 
   Future<Response> likeMovie(int id) async {
-    return await dio.post("${BaseService.USER_FAVORITE}/$id");
+    return await dio.post(BaseService.USER_FAVORITE, data: id);
   }
 
   Future<Response> unLikeMovie(int id) async {
@@ -31,6 +32,10 @@ class MovieDetailService extends BaseService {
   }
 
   Future<Response> saveMovieToMyHistory(int id) async {
-    return await dio.post("${BaseService.USER_HISTORY}/$id");
+    return await dio.post(BaseService.USER_HISTORY, data: id);
+  }
+
+  Future<Response> submitReview(MyReviewModel model) async {
+    return await dio.post(BaseService.USER_REVIEW, data: model);
   }
 }

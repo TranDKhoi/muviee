@@ -13,11 +13,17 @@ class WatchingPageState extends State<WatchingPage>
     with AutomaticKeepAliveClientMixin<WatchingPage> {
   final _cubit = injector<WatchingCubit>();
 
+  final cmtCtr = TextEditingController();
+  CancelToken cancelToken = CancelToken();
+  double rating = 0;
+  String percentage = "0%";
+
   bool isShowButton = true;
   bool isFullMode = false;
   bool isError = false;
+  bool isDownloading = false;
   Duration videoDuration = const Duration();
-  String currentVideoKey = "";
+  int currentVideoId = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -46,68 +52,60 @@ class WatchingPageState extends State<WatchingPage>
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   //options
-                                  Text(
-                                    R.options.translate,
-                                    style: AppStyle.mediumTitleTextStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
                                   Row(
                                     children: [
-                                      RatingBar.builder(
-                                        initialRating: 0,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemSize: 20,
-                                        itemBuilder: (context, _) => const Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                        onRatingUpdate: (double value) {},
+                                      Text(
+                                        R.options.translate,
+                                        style: AppStyle.mediumTitleTextStyle,
+                                        textAlign: TextAlign.start,
                                       ),
                                       const Spacer(),
                                       OptionItem(
                                           text: R.share.translate,
                                           icon: Icons.share_rounded,
                                           onTap: () {}),
-                                      OptionItem(
-                                          text: R.download.translate,
-                                          icon: Icons.download_rounded,
-                                          onTap: () {}),
+                                      Visibility(
+                                        visible: !isDownloading,
+                                        child: OptionItem(
+                                            text: R.download.translate,
+                                            icon: Icons.download_rounded,
+                                            onTap: () {
+                                              setState(() {
+                                                isDownloading = true;
+                                              });
+                                              _handleDownloadFile();
+                                            }),
+                                      ),
+                                      Visibility(
+                                        visible: isDownloading,
+                                        child: OptionItem(
+                                            text: percentage,
+                                            icon: Icons.download_rounded,
+                                            onTap: () {
+                                              setState(() {
+                                                isDownloading = false;
+                                              });
+                                              cancelToken.cancel();
+                                              cancelToken = CancelToken();
+                                            }),
+                                      ),
                                     ],
                                   ),
                                   const SizedBox(height: 16),
                                   //review
-                                  Text(
-                                    R.review.translate,
-                                    style: AppStyle.mediumTitleTextStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                  Row(
-                                    children: [
-                                      RatingBar.builder(
-                                        initialRating: 0,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemSize: 20,
-                                        itemBuilder: (context, _) => const Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                      const Spacer(),
-                                      OptionItem(
-                                          text: R.share.translate,
-                                          icon: Icons.share_rounded,
-                                          onTap: () {}),
-                                      OptionItem(
-                                          text: R.download.translate,
-                                          icon: Icons.download_rounded,
-                                          onTap: () {}),
-                                    ],
-                                  )
+                                  Builder(builder: (context) {
+                                    return MReviewField(
+                                      onRatingChanged: (val) => rating = val * 2,
+                                      cmtCtr: cmtCtr,
+                                      onSubmit: () {
+                                        context.read<WatchingCubit>().submitReview(
+                                              GlobalData.ins.currentMovieId!,
+                                              cmtCtr.text,
+                                              rating,
+                                            );
+                                      },
+                                    );
+                                  }),
                                 ],
                               ),
                             ),
@@ -127,7 +125,13 @@ class WatchingPageState extends State<WatchingPage>
   void initState() {
     super.initState();
     if (widget.controller != null) {
-      currentVideoKey = widget.controller!.dataSource;
+      if (currentVideoId != GlobalData.ins.currentMovieId) {
+        widget.controller!.initialize();
+        currentVideoId = GlobalData.ins.currentMovieId ?? 0;
+      }
+      if (!widget.controller!.hasListeners) {
+        widget.controller?.addListener(listener);
+      }
     }
   }
 
@@ -167,11 +171,33 @@ class WatchingPageState extends State<WatchingPage>
   void _onVisibilityChanged(VisibilityInfo info) async {
     await Future.delayed(const Duration(seconds: 0));
     if (widget.controller != null) {
-      if (currentVideoKey != widget.controller!.dataSource) {
+      if (currentVideoId != GlobalData.ins.currentMovieId) {
         widget.controller!.initialize();
-        currentVideoKey = widget.controller!.dataSource;
+        currentVideoId = GlobalData.ins.currentMovieId!;
+      }
+      if (!widget.controller!.hasListeners) {
+        widget.controller?.addListener(listener);
       }
     }
-    widget.controller?.addListener(listener);
+  }
+
+  void _handleDownloadFile() {
+    DownloadUtil.downloadVideo(widget.controller!.dataSource, cancelToken, (received, total) {
+      if (total != -1) {
+        setState(() {
+          percentage = '${((received / total) * 100).toStringAsFixed(0)}%';
+        });
+      }
+      if (received == total) {
+        setState(() {
+          isDownloading = false;
+        });
+        AlertUtil.showToast("Download success");
+      }
+    }, () {
+      setState(() {
+        isDownloading = false;
+      });
+    });
   }
 }
