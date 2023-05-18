@@ -17,6 +17,17 @@ class MovieSearchModel {
     this.totalPage,
     this.totalResults,
   });
-  factory MovieSearchModel.fromJson(Map<String, dynamic> json) => _$MovieSearchModelFromJson(json);
+
+  factory MovieSearchModel.fromJson(Map<String, dynamic> json) {
+    return MovieSearchModel(
+      page: json['page'] as int?,
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => MovieModel.fromJson(e["movie"] ?? e as Map<String, dynamic>))
+          .toList(),
+      totalPage: json['totalPage'] as int?,
+      totalResults: json['totalResults'] as int?,
+    );
+  }
+
   Map<String, dynamic> toJson() => _$MovieSearchModelToJson(this);
 }
