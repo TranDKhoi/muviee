@@ -11,6 +11,7 @@ class ReviewPage extends StatelessWidget {
       create: (context) => _bloc,
       child: AppScaffold(
         isHaveAppBar: true,
+        appBarTitle: R.review.translate,
         body: Padding(
           padding: const EdgeInsets.all(AppDimens.SCREEN_PADDING),
           child: BlocBuilder<ReviewBloc, ReviewState>(

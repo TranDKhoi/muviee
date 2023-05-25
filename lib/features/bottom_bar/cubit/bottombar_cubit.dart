@@ -18,9 +18,9 @@ class BottomBarCubit extends Cubit<BottomBarState> {
   }
 
   void navigateToWatchingTab(MovieVideoEntity currentMovie) {
-    controller.value = VideoPlayerController.network(currentMovie.key);
-    // controller.value = VideoPlayerController.network(
-    //     "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4");
+    // controller.value = VideoPlayerController.network(currentMovie.key);
+    controller.value = VideoPlayerController.network(
+        "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4");
     changePage(2);
   }
 
