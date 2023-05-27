@@ -98,4 +98,9 @@ class ProfileRepositoryImpl implements ProfileRepository {
 
     return entity;
   }
+
+  @override
+  Future<void> changePassword(String old, String newP) async {
+    await ProfileService.ins.changePassword(old, newP);
+  }
 }

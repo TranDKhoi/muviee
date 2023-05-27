@@ -79,4 +79,8 @@ final enLang = {
   R.submittedSuccessfully: "Submitted successfully",
   R.areyousureyouwanttodeletethisreview: "Are you sure you want to delete this review?",
   R.editComment: "Edit comment",
+  R.similar: "Similar",
+  R.currentPass: "current password",
+  R.newPass: "new password",
+  R.changePassSuccess: "Change password successfully",
 };

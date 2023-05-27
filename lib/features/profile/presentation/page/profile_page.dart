@@ -108,7 +108,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     trailing: const Icon(Icons.chevron_right_rounded),
                   ),
                   SettingItem(
-                    onTap: () {},
+                    onTap: () {
+                      widget.showChangePassDialog(context);
+                    },
                     icon: Icons.lock,
                     title: R.changePassword.translate,
                     trailing: const Icon(Icons.chevron_right_rounded),
@@ -116,6 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SettingItem(
                     onTap: () {
                       context.read<ProfileCubit>().logOut();
+                      context.read<BottomBarCubit>().changePage(0);
                     },
                     icon: Icons.logout_rounded,
                     title: R.sign_out.translate,

@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:muviee/common/entity/movie_entity.dart';
 import 'package:muviee/exceptions/app_exception.dart';
 import 'package:muviee/features/movie_detail/domain/entities/gallery/gallery_entity.dart';
 import 'package:muviee/features/movie_detail/domain/repositories/movie_detail_repository.dart';
@@ -10,6 +11,8 @@ import '../../../../config/langs/r.dart';
 import '../review/review_search_entity.dart';
 
 abstract class MovieDetailUseCase {
+  Future<List<MovieEntity>> getSimilarMovie(int id);
+
   Future<List<ActorEntity>> getActorOfMovie(int id);
 
   Future<GalleryEntity> getGalleryOfMovie(int id);
@@ -32,6 +35,11 @@ class MovieDetailUseCaseImpl implements MovieDetailUseCase {
   MovieDetailUseCaseImpl(this._repo);
 
   final MovieDetailRepository _repo;
+
+  @override
+  Future<List<MovieEntity>> getSimilarMovie(int id) async {
+    return await _repo.getSimilarMovie(id);
+  }
 
   @override
   Future<List<ActorEntity>> getActorOfMovie(int id) async {

@@ -6,6 +6,10 @@ class HomeService extends BaseService {
 
   HomeService._();
 
+  Future<Response> getRecommendedMovie() async {
+    return await dio.get(BaseService.GET_RECOMMEND_MOVIE);
+  }
+
   Future<Response> getLatestMovie() async {
     return await dio.get(BaseService.GET_LATEST_MOVIE);
   }
@@ -16,5 +20,13 @@ class HomeService extends BaseService {
 
   Future<Response> getTopRatedMovie() async {
     return await dio.get(BaseService.GET_TOP_MOVIE);
+  }
+
+  Future<Response> getVideoOfMovie(int id) async {
+    return await dio.get("${BaseService.BASE_PATH}/Movie/$id/videos");
+  }
+
+  Future<Response> saveMovieToMyHistory(int id) async {
+    return await dio.post(BaseService.USER_HISTORY, data: id);
   }
 }

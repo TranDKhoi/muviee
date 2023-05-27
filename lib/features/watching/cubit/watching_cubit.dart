@@ -22,4 +22,8 @@ class WatchingCubit extends Cubit<WatchingState> {
       ExceptionUtil.handle(e);
     }
   }
+
+  Future<List<MovieEntity>> getSimilarMovie(int id) async {
+    return await _useCase.getSimilarMovie(id);
+  }
 }

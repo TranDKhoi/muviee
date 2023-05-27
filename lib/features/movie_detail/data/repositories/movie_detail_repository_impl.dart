@@ -10,7 +10,10 @@ import 'package:muviee/utils/extensions/dio_extension.dart';
 import '../../../../common/entity/actor/actor_entity.dart';
 import '../../../../common/entity/actor/person_entity.dart';
 import '../../../../common/entity/country_entity.dart';
+import '../../../../common/entity/genre_entity.dart';
+import '../../../../common/entity/movie_entity.dart';
 import '../../../../common/models/actor/actor_model.dart';
+import '../../../../common/models/movie_model.dart';
 import '../../../../common/models/my_review/my_review_model.dart';
 import '../../domain/repositories/movie_detail_repository.dart';
 import '../../domain/review/review_entity.dart';
@@ -20,6 +23,37 @@ import '../models/review/review_search_model.dart';
 
 @Injectable(as: MovieDetailRepository)
 class MovieDetailRepositoryImpl implements MovieDetailRepository {
+  @override
+  Future<List<MovieEntity>> getSimilarMovie(int id) async {
+    var res = await MovieDetailService.ins.getSimilarMovie(id);
+
+    List<MovieModel> models =
+        List.from(res.serverData["results"].map((e) => MovieModel.fromJson(e)));
+
+    List<MovieEntity> entities = [];
+    for (var item in models) {
+      entities.add(MovieEntity(
+        id: item.id ?? -1,
+        backdropPath: item.backdropPath ?? "",
+        budget: item.budget ?? -1,
+        genres:
+            item.genres?.map((e) => GenreEntity(id: e.id ?? -1, name: e.name ?? "")).toList() ?? [],
+        imdbId: item.imdbId ?? "",
+        originalTitle: item.originalTitle ?? "",
+        title: item.title ?? "",
+        overview: item.overview ?? "",
+        posterPath: item.posterPath ?? "",
+        releaseDate: item.releaseDate ?? "",
+        revenue: item.revenue ?? -1,
+        runtime: item.runtime ?? -1,
+        voteAverage: item.voteAverage ?? 0.0,
+        voteCount: item.voteCount ?? 0,
+      ));
+    }
+
+    return entities;
+  }
+
   @override
   Future<List<ActorEntity>> getActorOfMovie(int id) async {
     var res = await MovieDetailService.ins.getActorOfMovie(id);

@@ -109,6 +109,17 @@ class WatchingPageState extends State<WatchingPage>
                                 ],
                               ),
                             ),
+                            FutureBuilder(
+                              future: _cubit.getSimilarMovie(GlobalData.ins.currentMovieId ?? -1),
+                              builder: (ctx, snapshot) {
+                                if (snapshot.connectionState == ConnectionState.done) {
+                                  if (snapshot.hasData) {
+                                    return SimilarMovie(snapshot.data ?? []);
+                                  }
+                                }
+                                return const CupertinoActivityIndicator();
+                              },
+                            ),
                           ],
                         ),
                       )

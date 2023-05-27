@@ -14,11 +14,15 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   FutureOr<void> _loadMovieDetail(
       LoadMovieDetailEvent event, Emitter<MovieDetailState> emit) async {
     try {
-      List<ActorEntity> actor = await _useCase.getActorOfMovie(event.id);
-      GalleryEntity gallery = await _useCase.getGalleryOfMovie(event.id);
-      ReviewSearchEntity reviewSearch = await _useCase.getReviewOfMovie(event.id);
+      List<dynamic> res = await Future.wait([
+        _useCase.getSimilarMovie(event.id),
+        _useCase.getActorOfMovie(event.id),
+        _useCase.getGalleryOfMovie(event.id),
+        _useCase.getReviewOfMovie(event.id),
+      ]);
 
-      emit(MovieDetailLoaded(actors: actor, gallery: gallery, reviewSearch: reviewSearch));
+      emit(MovieDetailLoaded(
+          similarMovie: res[0], actors: res[1], gallery: res[2], reviewSearch: res[3]));
     } catch (e) {
       ExceptionUtil.handle(e);
     }

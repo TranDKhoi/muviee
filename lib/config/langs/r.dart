@@ -80,4 +80,8 @@ class R {
   static const String areyousureyouwanttodeletethisreview =
       "Are you sure you want to delete this review?";
   static const String editComment = "Edit comment";
+  static const String similar = "Similar";
+  static const String currentPass = "current password";
+  static const String newPass = "new password";
+  static const String changePassSuccess = "Change password successfully";
 }

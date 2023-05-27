@@ -46,6 +46,7 @@ class MovieDetailPage extends StatelessWidget {
                             },
                           ),
                         ),
+                        if (state.similarMovie.isNotEmpty) SimilarMovie(state.similarMovie),
                       ],
                     );
                   }

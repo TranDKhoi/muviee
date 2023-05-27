@@ -4,6 +4,10 @@ import '../../../../common/entity/my_review/my_review_search_entity.dart';
 
 abstract class ProfileRepository {
   Future<void> logOut();
+
   Future<MovieSearchEntity> getMyFavorite();
+
   Future<MyReviewSearchEntity> getMyReview();
+
+  Future<void> changePassword(String old, String newP);
 }

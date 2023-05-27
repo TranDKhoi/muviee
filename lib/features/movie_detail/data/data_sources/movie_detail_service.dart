@@ -7,6 +7,10 @@ class MovieDetailService extends BaseService {
 
   MovieDetailService._();
 
+  Future<Response> getSimilarMovie(int id) async {
+    return await dio.get("${BaseService.BASE_PATH}/Movie/$id/Recommendation");
+  }
+
   Future<Response> getActorOfMovie(int id) async {
     return await dio.get("${BaseService.BASE_PATH}/Movie/$id/actors");
   }

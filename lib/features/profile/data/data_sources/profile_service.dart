@@ -13,4 +13,11 @@ class ProfileService extends BaseService {
   Future<Response> getMyReview() async {
     return await dio.get(BaseService.USER_REVIEW);
   }
+
+  Future<Response> changePassword(String old, String newP) async {
+    return await dio.put(
+      BaseService.CHANGE_PASSWORD,
+      data: {"oldPassword": old, "newPassword": newP},
+    );
+  }
 }

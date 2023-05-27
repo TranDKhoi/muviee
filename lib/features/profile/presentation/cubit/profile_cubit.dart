@@ -35,4 +35,16 @@ class ProfileCubit extends Cubit<ProfileState> {
       ExceptionUtil.handle(e);
     }
   }
+
+  Future<void> changePassword(String old, String newP, String reP) async {
+    try {
+      AlertUtil.showLoading();
+      await _useCase.changePassword(old, newP, reP);
+      AlertUtil.hideLoading();
+      NavigationUtil.pop();
+      AlertUtil.showToast(R.changePassSuccess.translate);
+    } catch (e) {
+      ExceptionUtil.handle(e);
+    }
+  }
 }

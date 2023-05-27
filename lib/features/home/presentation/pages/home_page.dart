@@ -26,14 +26,16 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<
               //big banner
               SizedBox(
                 height: context.screenSize.height / 2,
-                child: PageView(
-                  controller: pageController,
-                  children: [
-                    BigBanner(),
-                    BigBanner(),
-                    BigBanner(),
-                    BigBanner(),
-                  ],
+                child: BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state is AllMovieLoadedState) {
+                      return PageView(
+                        controller: pageController,
+                        children: state.recommendList.map((e) => BigBanner(e)).toList(),
+                      );
+                    }
+                    return const Center();
+                  },
                 ),
               ),
               //dot dot dot
@@ -42,14 +44,21 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<
                   left: 32,
                   top: 10,
                 ),
-                child: SmoothPageIndicator(
-                  controller: pageController,
-                  count: 4,
-                  effect: const ExpandingDotsEffect(
-                    activeDotColor: AppColor.primaryColor,
-                    dotHeight: 10,
-                    dotWidth: 10,
-                  ),
+                child: BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state is AllMovieLoadedState) {
+                      return SmoothPageIndicator(
+                        controller: pageController,
+                        count: state.recommendList.length,
+                        effect: const ExpandingDotsEffect(
+                          activeDotColor: AppColor.primaryColor,
+                          dotHeight: 10,
+                          dotWidth: 10,
+                        ),
+                      );
+                    }
+                    return const Center();
+                  },
                 ),
               ),
               // list of movie

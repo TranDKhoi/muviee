@@ -9,18 +9,20 @@ class MovieDetailInitial extends MovieDetailState {
 }
 
 class MovieDetailLoaded extends MovieDetailState {
+  final List<MovieEntity> similarMovie;
   final GalleryEntity gallery;
   final List<ActorEntity> actors;
   final ReviewSearchEntity reviewSearch;
 
   MovieDetailLoaded({
+    required this.similarMovie,
     required this.gallery,
     required this.actors,
     required this.reviewSearch,
   });
 
   @override
-  List<Object> get props => [gallery, actors, reviewSearch];
+  List<Object> get props => [similarMovie, gallery, actors, reviewSearch];
 }
 
 class GetMovieVideoSuccess extends MovieDetailState {
