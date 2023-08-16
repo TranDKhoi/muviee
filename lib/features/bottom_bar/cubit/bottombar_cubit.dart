@@ -9,7 +9,8 @@ part 'bottombar_state.dart';
 class BottomBarCubit extends Cubit<BottomBarState> {
   BottomBarCubit() : super(BottomBarInitial());
   final PageController pageController = PageController(initialPage: 0);
-  ValueNotifier<VideoPlayerController?> controller = ValueNotifier<VideoPlayerController?>(null);
+  ValueNotifier<VideoPlayerController?> controller =
+      ValueNotifier<VideoPlayerController?>(null);
   ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
 
   void changePage(int i) {
@@ -18,9 +19,9 @@ class BottomBarCubit extends Cubit<BottomBarState> {
   }
 
   void navigateToWatchingTab(MovieVideoEntity currentMovie) {
-    // controller.value = VideoPlayerController.network(currentMovie.key);
-    controller.value = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4");
+    controller.value = VideoPlayerController.network(currentMovie.key);
+    // controller.value = VideoPlayerController.network(
+    //     "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4");
     changePage(2);
   }
 
